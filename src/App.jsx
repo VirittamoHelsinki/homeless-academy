@@ -13,21 +13,15 @@ function App() {
 
 
     <main className='app__wrapper'>
-      <button className="btn">Button</button>
-      <button className="btn btn-neutral">Neutral</button>
-      <button className="btn btn-primary">Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-      <button className="btn btn-accent">Accent</button>
-      <button className="btn btn-ghost">Ghost</button>
-      <button className="btn btn-link">Link</button>
 
-      {/* <Routes>
+
+      <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/news' element={<News />} />
         <Route path='/news/:id' element={<Article />} />
         <Route path='/events' element={<Events />} />
-      </Routes> */}
+      </Routes>
     </main>
 
   )

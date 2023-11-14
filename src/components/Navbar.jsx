@@ -8,18 +8,24 @@ function Navbar({ language, setLanguage }) {
   }
 
   return (
-    <div>
-      <img src='/src/assets/logo.png'/>
-      <p>HOMELESS ACADEMY</p>
-      <p>DESIRE TO CHANGE</p>
-      <div>
-        <p>About</p>
-        <p>News</p>
-        <p>Events</p>
-        <p>Stories</p>
+    <div className='flex flex-row justify-between m-3 h-10 items-center'>
+      <div className='flex gap-2 items-center'>
+        <img src='/src/assets/logo.png' className='w-9 h-9'/>
+        <div className='flex flex-col font-lexend text-center'>
+          <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
+          <p className='text-blue'>DESIRE TO CHANGE</p>
+        </div>
       </div>
-      <p onClick={handleChangeLanguage}>FI</p>
-      <button>Contact us</button>
+      <div className='flex flex-row gap-10'>
+        <p>{language === 'FI' ? 'Etusivu' : 'Home'}</p>
+        <p>{language === 'FI' ? 'Tietoa meistä' : 'About'}</p>
+        <p>{language === 'FI' ? 'Ajankohtaista' : 'News'}</p>
+        <p>{language === 'FI' ? 'Tapahtumat' : 'Events'}</p>
+      </div>
+      <div className='flex flex-row gap-6 items-center'>
+        <p onClick={handleChangeLanguage}>{language === 'FI' ? 'EN' : 'FI'}</p>
+        <button className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white'>{language === 'FI' ? 'Ota yhteyttä' : 'Contact us'}</button>
+      </div>
     </div>
   )
 }

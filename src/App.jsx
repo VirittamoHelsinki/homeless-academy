@@ -4,25 +4,32 @@ import About from './pages/About';
 import News from './pages/News';
 import Article from './pages/Article';
 import Events from './pages/Events';
+import './index.css'
 
 function App() {
 
   return (
-<<<<<<< HEAD
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-=======
+
+
+
     <main className='app__wrapper'>
-      <Routes>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/about' element={<About />}/>
-        <Route path='/news' element={<News />}/>
-        <Route path='/news/:id' element={<Article />}/>
-        <Route path='/events' element={<Events />}/>
-      </Routes>
+      <button className="btn">Button</button>
+      <button className="btn btn-neutral">Neutral</button>
+      <button className="btn btn-primary">Primary</button>
+      <button className="btn btn-secondary">Secondary</button>
+      <button className="btn btn-accent">Accent</button>
+      <button className="btn btn-ghost">Ghost</button>
+      <button className="btn btn-link">Link</button>
+
+      {/* <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/news/:id' element={<Article />} />
+        <Route path='/events' element={<Events />} />
+      </Routes> */}
     </main>
->>>>>>> 4cb9513da3fc4d518581da16d73b42c1d3aa8724
+
   )
 }
 

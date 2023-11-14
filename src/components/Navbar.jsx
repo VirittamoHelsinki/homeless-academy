@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar({ language, setLanguage }) {
+  const navigate = useNavigate();
 
   const handleChangeLanguage = () => {
     language === 'FI' ? setLanguage('EN') : setLanguage('FI')
@@ -9,7 +11,7 @@ function Navbar({ language, setLanguage }) {
 
   return (
     <div className='flex flex-row justify-between m-3 h-10 items-center'>
-      <div className='flex gap-2 items-center'>
+      <div onClick={() => navigate('/home')} className='flex gap-2 items-center'>
         <img src='/src/assets/logo.png' className='w-9 h-9'/>
         <div className='flex flex-col font-lexend text-center'>
           <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
@@ -17,10 +19,10 @@ function Navbar({ language, setLanguage }) {
         </div>
       </div>
       <div className='flex flex-row gap-10'>
-        <p>{language === 'FI' ? 'Etusivu' : 'Home'}</p>
-        <p>{language === 'FI' ? 'Tietoa meistä' : 'About'}</p>
-        <p>{language === 'FI' ? 'Ajankohtaista' : 'News'}</p>
-        <p>{language === 'FI' ? 'Tapahtumat' : 'Events'}</p>
+        <p onClick={() => navigate('/home')}>{language === 'FI' ? 'Etusivu' : 'Home'}</p>
+        <p onClick={() => navigate('/about')}>{language === 'FI' ? 'Tietoa meistä' : 'About'}</p>
+        <p onClick={() => navigate('/news')}>{language === 'FI' ? 'Ajankohtaista' : 'News'}</p>
+        <p onClick={() => navigate('/events')}>{language === 'FI' ? 'Tapahtumat' : 'Events'}</p>
       </div>
       <div className='flex flex-row gap-6 items-center'>
         <p onClick={handleChangeLanguage}>{language === 'FI' ? 'EN' : 'FI'}</p>

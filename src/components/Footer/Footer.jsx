@@ -10,12 +10,12 @@ const Footer = () => {
         <aside className="items-center grid-flow-row ">
           <div className='flex  items-center gap-4'>
             <div>
-              <img className="h-14 w-10" src={img} alt="logo" />
+              <img className="h-10 w-10" src={img} alt="logo" />
             </div>
             <div className='flex flex-col'>
-              <p className=' font-extrabold text-3xl text-white font-lexend pb-2'
+              <p className=' font-semibold text-2xl text-white font-lexend pb-1'
                 style={{ borderBottomWidth: '1px', borderBottomColor: '#3983C0' }}>Homeless Academy <br></br></p>
-              <p className='text-center text-sky-600 text-lg font-bold '>DESIRE TO CHANGE</p>
+              <p className='text-center text-sky-600 text-lg font-bold pt-1 '>DESIRE TO CHANGE</p>
             </div>
           </div>
 

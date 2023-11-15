@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         'lexend': ['Lexend', 'sans-serif'],
-        'montserrat': ['Montserrat', 'sans-serif'],
+
       },
     },
   },

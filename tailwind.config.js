@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 export default {
   content: [
     "./index.html",
@@ -6,9 +8,16 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'light-green': '#CFD8D7',
+        'medium-green': '#557669',
+        'dark-green': '#074A41',
+        'dark-gray': '#3D3D3D',
+        'blue': '#4298DF',
+      },
       fontFamily: {
-        'lexend': ['Lexend', 'sans-serif'],
-
+        'sans': ['"Montserrat"', ...defaultTheme.fontFamily.sans],
+        'lexend': ['Lexend', 'sans-serif']
       },
     },
   },

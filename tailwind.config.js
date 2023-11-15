@@ -17,7 +17,8 @@ export default {
       },
       fontFamily: {
         'sans': ['"Montserrat"', ...defaultTheme.fontFamily.sans],
-        'lexend': ['Lexend', 'sans-serif']
+        'lexend': ['Lexend', 'sans-serif'],
+        'MPlus': ['M PLUS 1', 'sans-serif']
       },
     },
   },

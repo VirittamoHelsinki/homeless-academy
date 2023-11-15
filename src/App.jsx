@@ -7,6 +7,7 @@ import Article from './pages/Article';
 import Events from './pages/Events';
 import './index.css'
 import Navbar from './components/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/news/:id' element={<Article />} />
         <Route path='/events' element={<Events />} />
       </Routes>
+      <Footer></Footer>
     </main>
 
   )

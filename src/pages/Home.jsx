@@ -1,11 +1,11 @@
 import React from 'react';
-import Footer from '../components/Footer/Footer';
+import HeaderComponent from '../components/Headercomponent/HeaderComponent';
+
 
 function Home() {
   return (
     <div>
-      <p>Home page</p>
-      <Footer></Footer>
+      <HeaderComponent></HeaderComponent>
     </div>
   )
 }

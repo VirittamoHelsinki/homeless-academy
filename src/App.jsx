@@ -16,7 +16,7 @@ function App() {
   return (
     <main className='app__wrapper'>
       <Navbar language={language} setLanguage={setLanguage} />
-      <Footer />
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />

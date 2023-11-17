@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 
 function Navbar({ language, setLanguage }) {
   const navigate = useNavigate();
@@ -18,16 +19,45 @@ function Navbar({ language, setLanguage }) {
           <p className='text-blue'>DESIRE TO CHANGE</p>
         </div>
       </div>
-      <div className='flex flex-row gap-10'>
+      <div className='hidden lg:flex flex-row gap-8'>
         <p onClick={() => navigate('/home')}>{language === 'FI' ? 'Etusivu' : 'Home'}</p>
         <p onClick={() => navigate('/about')}>{language === 'FI' ? 'Tietoa meistä' : 'About'}</p>
         <p onClick={() => navigate('/news')}>{language === 'FI' ? 'Ajankohtaista' : 'News'}</p>
         <p onClick={() => navigate('/events')}>{language === 'FI' ? 'Tapahtumat' : 'Events'}</p>
       </div>
-      <div className='flex flex-row gap-6 items-center'>
+      <div className='hidden lg:flex flex-row gap-6 items-center'>
         <p onClick={handleChangeLanguage}>{language === 'FI' ? 'EN' : 'FI'}</p>
-        <button className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white'>{language === 'FI' ? 'Ota yhteyttä' : 'Contact us'}</button>
+        <button className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white'>
+          {language === 'FI' ? 'Ota yhteyttä' : 'Contact us'}
+        </button>
       </div>
+
+      {/* Mobile burger menu */}
+      <details className="dropdown dropdown-bottom dropdown-end lg:hidden">
+        <summary className="m-1 btn bg-inherit border-none"><Icon icon="iconamoon:menu-burger-horizontal-light" width="30" height="30" /></summary>
+        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+          <li>
+            <button className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white m-4'>
+              {language === 'FI' ? 'Ota yhteyttä' : 'Contact us'}
+            </button>
+          </li>
+          <li>
+            <p onClick={handleChangeLanguage}>{language === 'FI' ? 'EN' : 'FI'}</p>
+          </li>
+          <li>
+            <p onClick={() => navigate('/home')}>{language === 'FI' ? 'Etusivu' : 'Home'}</p>
+          </li>
+          <li>
+            <p onClick={() => navigate('/about')}>{language === 'FI' ? 'Tietoa meistä' : 'About'}</p>
+          </li>
+          <li>
+            <p onClick={() => navigate('/news')}>{language === 'FI' ? 'Ajankohtaista' : 'News'}</p>
+          </li>
+          <li>
+            <p onClick={() => navigate('/events')}>{language === 'FI' ? 'Tapahtumat' : 'Events'}</p>
+          </li>
+        </ul>
+      </details>
     </div>
   )
 }

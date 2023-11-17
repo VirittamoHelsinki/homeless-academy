@@ -75,7 +75,7 @@ function ContactForm() {
 
   return (
       <dialog id='my_modal_1' className='modal' onClick={(e) => e.target.close()}>
-        <div className='modal-box bg-light-green prose flex gap-6 max-w-5xl'>
+        <div className='modal-box bg-light-green prose flex flex-col lg:flex-row gap-6 max-w-5xl'>
             <div className='flex-1'>
               <h1>{text.title[language]}</h1>
               <h3>{text.description[language]}</h3>

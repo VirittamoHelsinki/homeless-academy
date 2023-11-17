@@ -11,13 +11,10 @@ function ContactForm() {
     event.preventDefault()
     handleHideContactForm()
 
+    // Get form values
     const name = event.target[1].value;
     const email = event.target[0].value;
     const message = event.target[2].value;
-
-    console.log('Email:', email);
-    console.log('Name:', name);
-    console.log('Message:', message);
 
     // Form validation: check for empty fields
     if (!name || !email || !message || name === '' || email === '' || message === '') {
@@ -77,7 +74,7 @@ function ContactForm() {
   };
 
   return (
-      <dialog id='my_modal_1' className='modal'>
+      <dialog id='my_modal_1' className='modal' onClick={(e) => e.target.close()}>
         <div className='modal-box bg-light-green prose flex gap-6 max-w-5xl'>
             <div className='flex-1'>
               <h1>{text.title[language]}</h1>

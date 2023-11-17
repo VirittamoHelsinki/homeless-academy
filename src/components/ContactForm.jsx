@@ -18,14 +18,14 @@ function ContactForm() {
 
     // Form validation: check for empty fields
     if (!name || !email || !message || name === '' || email === '' || message === '') {
-      toast.error(language === 'EN' ? 'Please fill all fields' : 'Täytä kaikki kentät')
+      toast.error(language === 'en-US' ? 'Please fill all fields' : 'Täytä kaikki kentät')
       return;
     }
 
     // Form validation: Regex for email format
     const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
     if (!emailPattern.test(email)) {
-      toast.error(language === 'EN' ? 'Check email format' : 'Tarkista sähköpostiosoite')
+      toast.error(language === 'en-US' ? 'Check email format' : 'Tarkista sähköpostiosoite')
       return;
     }
 
@@ -44,32 +44,32 @@ function ContactForm() {
 
   const text = {
     title: {
-      FI: 'Ota yhteyttä',
-      EN: 'Contact us',
+      'fi-FI': 'Ota yhteyttä',
+      'en-US': 'Contact us',
     },
     description: {
-      FI: 'Ohjeteksti Homeless Academyn toimintaan mukaan pääsemisestä tai ohjeita yhteydenottolomakkeen täyttöön',
-      EN: 'Description about joining Homeless Academy and instructions for filling contact form',
+      'fi-FI': 'Ohjeteksti Homeless Academyn toimintaan mukaan pääsemisestä tai ohjeita yhteydenottolomakkeen täyttöön',
+      'en-US': 'Description about joining Homeless Academy and instructions for filling contact form',
     },
     prompt: {
-      FI: 'Lähetä yhteydenottolomake ja vastaamme sinulle mahdollisimman pian',
-      EN: 'Complete the form and we will contact you shortly',
+      'fi-FI': 'Lähetä yhteydenottolomake ja vastaamme sinulle mahdollisimman pian',
+      'en-US': 'Complete the form and we will contact you shortly',
     },
     nameField: {
-      FI: 'Nimi *',
-      EN: 'Name *',
+      'fi-FI': 'Nimi *',
+      'en-US': 'Name *',
     },
     emailField: {
-      FI: 'Sähköposti *',
-      EN: 'Email *',
+      'fi-FI': 'Sähköposti *',
+      'en-US': 'Email *',
     },
     messageField: {
-      FI: 'Viesti *',
-      EN: 'Message *',
+      'fi-FI': 'Viesti *',
+      'en-US': 'Message *',
     },
     button: {
-      FI: 'Lähetä',
-      EN: 'Submit',
+      'fi-FI': 'Lähetä',
+      'en-US': 'Submit',
     }
   };
 

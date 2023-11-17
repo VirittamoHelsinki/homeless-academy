@@ -8,33 +8,33 @@ function Navbar() {
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
 
   const handleChangeLanguage = () => {
-    language === 'FI' ? setLanguage('EN') : setLanguage('FI')
+    language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
   }
 
   const text = {
     home: {
-      FI: 'Etusivu',
-      EN: 'Home',
+      'fi-FI': 'Etusivu',
+      'en-US': 'Home',
     },
     about: {
-      FI: 'Tietoa meistä',
-      EN: 'About',
+      'fi-FI': 'Tietoa meistä',
+      'en-US': 'About',
     },
     news: {
-      FI: 'Ajankohtaista',
-      EN: 'News',
+      'fi-FI': 'Ajankohtaista',
+      'en-US': 'News',
     },
     events: {
-      FI: 'Tapahtumat',
-      EN: 'Events',
+      'fi-FI': 'Tapahtumat',
+      'en-US': 'Events',
     },
     contactUs: {
-      FI: 'Ota yhteyttä',
-      EN: 'Contact us',
+      'fi-FI': 'Ota yhteyttä',
+      'en-US': 'Contact us',
     },
     changeLanguage: {
-      FI: 'EN',
-      EN: 'FI',
+      'fi-FI': 'EN',
+      'en-US': 'FI',
     },
   };
 

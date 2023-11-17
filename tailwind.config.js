@@ -15,6 +15,7 @@ export default {
         'dark-gray': '#3D3D3D',
         'blue': '#4298DF',
         'light-gray': '#505050',
+        'base': '#393939'
       },
       fontFamily: {
         'sans': ['"Montserrat"', ...defaultTheme.fontFamily.sans],

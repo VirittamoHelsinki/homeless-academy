@@ -16,7 +16,7 @@ function App() {
   return (
     <main className='app__wrapper'>
       <Navbar language={language} setLanguage={setLanguage} />
-      <Footer />
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -24,6 +24,7 @@ function App() {
         <Route path='/news/:id' element={<Article />} />
         <Route path='/events' element={<Events />} />
       </Routes>
+      <Footer></Footer>
     </main>
   )
 }

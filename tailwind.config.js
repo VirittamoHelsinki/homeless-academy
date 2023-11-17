@@ -14,13 +14,16 @@ export default {
         'dark-green': '#074A41',
         'dark-gray': '#3D3D3D',
         'blue': '#4298DF',
+        'light-gray': '#505050',
       },
       fontFamily: {
         'sans': ['"Montserrat"', ...defaultTheme.fontFamily.sans],
-        'lexend': ['Lexend', 'sans-serif']
+        'lexend': ['Lexend', 'sans-serif'],
+        'MPlus': ['M PLUS 1', 'sans-serif']
       },
     },
   },
   plugins: [require("daisyui")],
 }
+
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import HeaderComponent from '../components/Headercomponent/HeaderComponent';
-import img from '../assets/unsplash.png'
-
+import img from '../assets/unsplash.png';
+import Contacts from '../components/Contacts';
 
 function Home() {
   return (
-    <div >
-      <HeaderComponent></HeaderComponent>
+    <div>
+      <HeaderComponent />
       <div className='bg-light-green'>
         <h1 className='text-center text-2xl font-bold lg:text-6xl pb-2 pt-8 lg:pb-4 lg:pt-12 font-sans '><span className='text-dark-green'>Keitä</span> olemme?</h1>
         <p className='text-center lg:text-xl text-light-gray font-semibold w-3/4 p-8 lg:w-2/5 mx-auto pb-12 '>Homeless Academy ry on voittoa tavoittelematon yhdistys, joka tuottaa ja kehittää asunnottomien ja päihdekuntoutujien toiminnallisen kuntoutuksen menetelmiä. Yhtenä toimintamme muotona järjestämme, kehitämme ja koordinoimme jalkapallotoimintaa Suomessa, erityisesti katujalkapallotoimintaa. Toimintaa järjestetään sekä naisille että miehille.</p>
@@ -21,8 +21,7 @@ function Home() {
           <p className='text-center text-white w-3/4 lg:w-1/3 mx-auto pb-14 lg:text-xl font-lexend'>Tämä toteutuu sillä, että kohderyhmämme henkilöille tuotetaan toimintaa, jonka kautta he voivat saada positiivisia elämyksiä omassa vertaisryhmässään sekä itsetunnon ja päihteettömän identiteetin kasvun myötä tavoitella tuetusti mm. opiskelu- ja työpaikkaa sekä omaa pysyvää asuntoa.  </p>
         </div>
       </div>
-
-
+      <Contacts />
     </div>
   )
 }

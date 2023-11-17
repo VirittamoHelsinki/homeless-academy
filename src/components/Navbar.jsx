@@ -39,7 +39,7 @@ function Navbar() {
   };
 
   return (
-    <div className='flex flex-row justify-between m-3 h-10 items-center p-10'>
+    <div className='flex flex-row justify-between h-10 items-center py-10 px-5'>
       <div onClick={() => navigate('/')} className='flex gap-2 items-center'>
         <img src='/src/assets/logo.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>
@@ -54,6 +54,8 @@ function Navbar() {
         <button className='btn btn-ghost' onClick={() => navigate('/events')}>{text.events[language]}</button>
       </div>
       <div className='hidden lg:flex flex-row gap-6 items-center'>
+        
+        {/* Change language button */}
         <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
 
         {/* Contact us button */}

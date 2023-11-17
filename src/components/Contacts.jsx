@@ -14,11 +14,20 @@ function Contacts() {
     }
     fetchData()
   }, [])
-  console.log(contacts)
 
   return (
-  <div className='bg-medium-green font-lexend text-white font-extrabold text-3xl lg:text-5xl text-center py-5'>
-    <h1>{language === 'FI' ? 'Homeless Academyn tiimi' : 'Meet our team'}</h1>
+  <div className='bg-medium-green text-center py-10 text-white'>
+    <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl'>{language === 'FI' ? 'Homeless Academyn tiimi' : 'Meet our team'}</h1>
+    <div className='flex flex-wrap w-full justify-center gap-12 mt-12 px-10'>
+      {contacts.map((contact, index) => (
+        <div key={index} className='flex flex-col gap-2 items-center lg:items-start'>
+          <img src={contact.profilePicture.fields.file.url} className='w-36 h-36 rounded-full lg:rounded-sm'/>
+          <p className='font-semibold mt-3'>{contact.firstName} {contact.lastName}</p>
+          <p>{contact.phoneNumber}</p>
+          <p>{contact.email}</p>
+        </div>
+      ))}
+    </div>
   </div>
   );
 }

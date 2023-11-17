@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import React, { useContext } from 'react';
-import AppContext from './AppContext';
+import React from 'react';
 import Home from './pages/Home';
 import './index.css'
 import About from './pages/About';
@@ -17,7 +16,6 @@ function App() {
     <main className='app__wrapper'>
       <Navbar />
       <ContactForm />
-      <Footer />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -25,6 +23,7 @@ function App() {
         <Route path='/news/:id' element={<Article />} />
         <Route path='/events' element={<Events />} />
       </Routes>
+      <Footer />
     </main>
   )
 }

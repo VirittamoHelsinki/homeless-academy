@@ -48,13 +48,13 @@ function Navbar() {
         </div>
       </div>
       <div className='hidden lg:flex flex-row gap-8'>
-        <p onClick={() => navigate('/')}>{text.home[language]}</p>
-        <p onClick={() => navigate('/about')}>{text.about[language]}</p>
-        <p onClick={() => navigate('/news')}>{text.news[language]}</p>
-        <p onClick={() => navigate('/events')}>{text.events[language]}</p>
+        <button className='btn btn-ghost' onClick={() => navigate('/')}>{text.home[language]}</button>
+        <button className='btn btn-ghost' onClick={() => navigate('/about')}>{text.about[language]}</button>
+        <button className='btn btn-ghost' onClick={() => navigate('/news')}>{text.news[language]}</button>
+        <button className='btn btn-ghost' onClick={() => navigate('/events')}>{text.events[language]}</button>
       </div>
       <div className='hidden lg:flex flex-row gap-6 items-center'>
-        <p onClick={handleChangeLanguage}>{text.changeLanguage[language]}</p>
+        <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
 
         {/* Contact us button */}
         <button 

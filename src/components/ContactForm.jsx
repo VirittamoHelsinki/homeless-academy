@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import AppContext from '../AppContext';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 function ContactForm() {
   const { language, handleHideContactForm } = useContext(AppContext);
@@ -18,6 +19,19 @@ function ContactForm() {
     console.log('Name:', name);
     console.log('Message:', message);
 
+    // Form validation: check for empty fields
+    if (!name || !email || !message || name === '' || email === '' || message === '') {
+      toast.error(language === 'EN' ? 'Please fill all fields' : 'Täytä kaikki kentät')
+      return;
+    }
+
+    // Form validation: Regex for email format
+    const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+    if (!emailPattern.test(email)) {
+      toast.error(language === 'EN' ? 'Check email format' : 'Tarkista sähköpostiosoite')
+      return;
+    }
+
     // Send email
     try {
       await emailjs.send('service_sz7thab', 'template_06tlmq8', {
@@ -25,7 +39,7 @@ function ContactForm() {
         email: email,
         message: message,
       });
-      alert("email successfully sent check inbox");
+      toast.success(language === 'EN' ? 'Email sent successfully' : 'Sähköpostin lähetys onnistui');
     } catch (error) {
       console.log(error);
     }

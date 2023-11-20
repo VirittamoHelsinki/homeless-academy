@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'laptop': '1024px',
+      },
+
       colors: {
         'light-green': '#CFD8D7',
         'medium-green': '#557669',
@@ -29,5 +33,4 @@ export default {
     require('@tailwindcss/typography'),
   ],
 }
-
 

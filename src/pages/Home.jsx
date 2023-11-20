@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderComponent from '../components/Headercomponent/HeaderComponent';
+
 import Identity from '../components/Identity/Identity';
 
 
@@ -8,10 +9,7 @@ function Home() {
     <div >
       <HeaderComponent></HeaderComponent>
       <Identity></Identity>
-
-
-
-    </div>
+ </div>
   )
 }
 

@@ -17,7 +17,7 @@ function App() {
   return (
     <main className='app__wrapper'>
       <Navbar />
-      <ToastContainer hideProgressBar={true}/>
+      <ToastContainer hideProgressBar={true} />
       <ContactForm />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -32,3 +32,7 @@ function App() {
 }
 
 export default App
+
+
+
+

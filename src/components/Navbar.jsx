@@ -8,38 +8,38 @@ function Navbar() {
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
 
   const handleChangeLanguage = () => {
-    language === 'FI' ? setLanguage('EN') : setLanguage('FI')
+    language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
   }
 
   const text = {
     home: {
-      FI: 'Etusivu',
-      EN: 'Home',
+      'fi-FI': 'Etusivu',
+      'en-US': 'Home',
     },
     about: {
-      FI: 'Tietoa meistä',
-      EN: 'About',
+      'fi-FI': 'Tietoa meistä',
+      'en-US': 'About',
     },
     news: {
-      FI: 'Ajankohtaista',
-      EN: 'News',
+      'fi-FI': 'Ajankohtaista',
+      'en-US': 'News',
     },
     events: {
-      FI: 'Tapahtumat',
-      EN: 'Events',
+      'fi-FI': 'Tapahtumat',
+      'en-US': 'Events',
     },
     contactUs: {
-      FI: 'Ota yhteyttä',
-      EN: 'Contact us',
+      'fi-FI': 'Ota yhteyttä',
+      'en-US': 'Contact us',
     },
     changeLanguage: {
-      FI: 'EN',
-      EN: 'FI',
+      'fi-FI': 'EN',
+      'en-US': 'FI',
     },
   };
 
   return (
-    <div className='flex flex-row justify-between m-3 h-10 items-center p-10'>
+    <div className='flex flex-row justify-between h-10 items-center py-10 px-5'>
       <div onClick={() => navigate('/')} className='flex gap-2 items-center'>
         <img src='/src/assets/logo.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>
@@ -48,13 +48,15 @@ function Navbar() {
         </div>
       </div>
       <div className='hidden lg:flex flex-row gap-8'>
-        <p onClick={() => navigate('/')}>{text.home[language]}</p>
-        <p onClick={() => navigate('/about')}>{text.about[language]}</p>
-        <p onClick={() => navigate('/news')}>{text.news[language]}</p>
-        <p onClick={() => navigate('/events')}>{text.events[language]}</p>
+        <button className='btn btn-ghost' onClick={() => navigate('/')}>{text.home[language]}</button>
+        <button className='btn btn-ghost' onClick={() => navigate('/about')}>{text.about[language]}</button>
+        <button className='btn btn-ghost' onClick={() => navigate('/news')}>{text.news[language]}</button>
+        <button className='btn btn-ghost' onClick={() => navigate('/events')}>{text.events[language]}</button>
       </div>
       <div className='hidden lg:flex flex-row gap-6 items-center'>
-        <p onClick={handleChangeLanguage}>{text.changeLanguage[language]}</p>
+        
+        {/* Change language button */}
+        <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
 
         {/* Contact us button */}
         <button 

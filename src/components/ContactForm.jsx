@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 function ContactForm() {
   const { language, handleHideContactForm } = useContext(AppContext);
-  useEffect(() => emailjs.init('QaWiUfiJ0lYX_46sc'), []);
+  useEffect(() => emailjs.init('blybkcpl3NcA1DLJD'), []); // Public key from Email.js
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -18,20 +18,20 @@ function ContactForm() {
 
     // Form validation: check for empty fields
     if (!name || !email || !message || name === '' || email === '' || message === '') {
-      toast.error(language === 'EN' ? 'Please fill all fields' : 'Täytä kaikki kentät')
+      toast.error(language === 'en-US' ? 'Please fill all fields' : 'Täytä kaikki kentät')
       return;
     }
 
     // Form validation: Regex for email format
     const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
     if (!emailPattern.test(email)) {
-      toast.error(language === 'EN' ? 'Check email format' : 'Tarkista sähköpostiosoite')
+      toast.error(language === 'en-US' ? 'Check email format' : 'Tarkista sähköpostiosoite')
       return;
     }
 
     // Send email
     try {
-      await emailjs.send('service_sz7thab', 'template_06tlmq8', {
+      await emailjs.send('service_rlj2iup', 'template_th8oubo', {
         name: name,
         email: email,
         message: message,
@@ -39,43 +39,44 @@ function ContactForm() {
       toast.success(language === 'EN' ? 'Email sent successfully' : 'Sähköpostin lähetys onnistui');
     } catch (error) {
       console.log(error);
+      toast.error(language === 'en-US' ? 'Sending form was unsuccessful' : 'Lomakkeen lähetys epäonnistui');
     }
   };
 
   const text = {
     title: {
-      FI: 'Ota yhteyttä',
-      EN: 'Contact us',
+      'fi-FI': 'Ota yhteyttä',
+      'en-US': 'Contact us',
     },
     description: {
-      FI: 'Ohjeteksti Homeless Academyn toimintaan mukaan pääsemisestä tai ohjeita yhteydenottolomakkeen täyttöön',
-      EN: 'Description about joining Homeless Academy and instructions for filling contact form',
+      'fi-FI': 'Ohjeteksti Homeless Academyn toimintaan mukaan pääsemisestä tai ohjeita yhteydenottolomakkeen täyttöön',
+      'en-US': 'Description about joining Homeless Academy and instructions for filling contact form',
     },
     prompt: {
-      FI: 'Lähetä yhteydenottolomake ja vastaamme sinulle mahdollisimman pian',
-      EN: 'Complete the form and we will contact you shortly',
+      'fi-FI': 'Lähetä yhteydenottolomake ja vastaamme sinulle mahdollisimman pian',
+      'en-US': 'Complete the form and we will contact you shortly',
     },
     nameField: {
-      FI: 'Nimi *',
-      EN: 'Name *',
+      'fi-FI': 'Nimi *',
+      'en-US': 'Name *',
     },
     emailField: {
-      FI: 'Sähköposti *',
-      EN: 'Email *',
+      'fi-FI': 'Sähköposti *',
+      'en-US': 'Email *',
     },
     messageField: {
-      FI: 'Viesti *',
-      EN: 'Message *',
+      'fi-FI': 'Viesti *',
+      'en-US': 'Message *',
     },
     button: {
-      FI: 'Lähetä',
-      EN: 'Submit',
+      'fi-FI': 'Lähetä',
+      'en-US': 'Submit',
     }
   };
 
   return (
       <dialog id='my_modal_1' className='modal' onClick={(e) => e.target.close()}>
-        <div className='modal-box bg-light-green prose flex gap-6 max-w-5xl'>
+        <div className='modal-box bg-light-green prose flex flex-col lg:flex-row gap-6 max-w-5xl'>
             <div className='flex-1'>
               <h1>{text.title[language]}</h1>
               <h3>{text.description[language]}</h3>

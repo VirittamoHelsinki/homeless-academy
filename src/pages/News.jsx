@@ -63,7 +63,13 @@ function News() {
       <div className='flex flex-col gap-5 md:flex-row md:flex-wrap'>
         {filteredArticles.map(article => (
           <div key={article.sys.id} className='card bg-base-100 shadow-xl md:w-[48%] lg:w-[31%] 2xl:w-[24%]'>
-            <figure><img src={article.fields.headerImage.fields.file.url} alt='Header image' /></figure>
+            <figure className='h-60'>
+              <img 
+                src={article.fields.headerImage.fields.file.url} 
+                alt='Header image' 
+                className='object-cover w-full h-full'
+              />
+            </figure>
             <div className='card-body'>
               <p>{formatDate(article.fields.date)} - {article.fields.authorName}</p>
               <h2 className='card-title'>{article.fields.title}</h2>

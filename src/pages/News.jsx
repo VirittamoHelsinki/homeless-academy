@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Search from '../components/Search';
 import AppContext from '../AppContext';
 import { client } from '../client';
+import { formatDate} from '../utils/utils';
 
 function News() {
   const navigate = useNavigate();
@@ -11,19 +12,19 @@ function News() {
   const [articles, setArticles] = useState([]);
   const [filteredArticles, setFilteredArticles] = useState([]);
 
+  // Fetch all articles
   useEffect(() => {
     async function fetchData() {
       const response = await client.getEntries({
         content_type: 'article',
         locale: language,
       })
-      console.log('response', response.items)
       const entries = response.items
       
       // Sort entries by date
       const sortedEntries = entries.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+      const dateA = new Date(a.fields.date);
+      const dateB = new Date(b.fields.date);
       return dateB - dateA;
       });
 
@@ -39,17 +40,6 @@ function News() {
         article.fields.title.toLowerCase().includes(event.target.value.toLowerCase())
       )
     );
-  };
-
-  const formatDate = (dateString) => {
-    const inputDate = new Date(dateString);
-  
-    const day = inputDate.getDate().toString().padStart(2, '0');
-    const month = (inputDate.getMonth() + 1).toString().padStart(2, '0');
-    const year = inputDate.getFullYear();
-  
-    const formattedDate = `${day}.${month}.${year}`;
-    return formattedDate;
   };
 
   return (

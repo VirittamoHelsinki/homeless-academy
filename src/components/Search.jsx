@@ -9,7 +9,7 @@ function Search(props) {
         placeholder='Search' 
         onChange={props.handleSearch}
       />
-      <Icon icon='material-symbols:search' color='gray'/>
+      <Icon icon="material-symbols:search" color='gray'/>
     </div>
   );
 }

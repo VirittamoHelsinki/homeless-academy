@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'laptop': '1024px',
+      },
+
       colors: {
         'light-green': '#CFD8D7',
         'medium-green': '#557669',
@@ -15,6 +19,7 @@ export default {
         'dark-gray': '#3D3D3D',
         'blue': '#4298DF',
         'light-gray': '#505050',
+        'base': '#393939'
       },
       fontFamily: {
         'sans': ['"Montserrat"', ...defaultTheme.fontFamily.sans],
@@ -28,5 +33,4 @@ export default {
     require('@tailwindcss/typography'),
   ],
 }
-
 

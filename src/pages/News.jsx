@@ -16,21 +16,25 @@ function News() {
   // Fetch all articles
   useEffect(() => {
     async function fetchData() {
-      const response = await client.getEntries({
-        content_type: 'article',
-        locale: language,
-      })
-      const entries = response.items
-      
-      // Sort entries by date
-      const sortedEntries = entries.sort((a, b) => {
-      const dateA = new Date(a.fields.date);
-      const dateB = new Date(b.fields.date);
-      return dateB - dateA;
-      });
-
-      setArticles(sortedEntries)
-      setFilteredArticles(sortedEntries)
+      try {
+        const response = await client.getEntries({
+          content_type: 'article',
+          locale: language,
+        })
+        const entries = response.items
+        
+        // Sort entries by date
+        const sortedEntries = entries.sort((a, b) => {
+        const dateA = new Date(a.fields.date);
+        const dateB = new Date(b.fields.date);
+        return dateB - dateA;
+        });
+  
+        setArticles(sortedEntries)
+        setFilteredArticles(sortedEntries)
+      } catch (error) {
+        console.log('Error fetching all articles from Contentful:', err);
+      }
     }
     fetchData()
   }, [language])

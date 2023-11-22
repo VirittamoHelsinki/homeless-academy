@@ -8,12 +8,16 @@ function History() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await client.getEntries({
-        content_type: 'timelineEvent',
-        locale: language,
-      })
-      const entries = response.items.map(item => item.fields)
-      setTimelineEvents(entries)
+      try {
+        const response = await client.getEntries({
+          content_type: 'timelineEvent',
+          locale: language,
+        })
+        const entries = response.items.map(item => item.fields)
+        setTimelineEvents(entries)
+      } catch (error) {
+        console.log('Error fetching timeline events from Contentful:', err);
+      }
     }
     fetchData()
   }, [language])

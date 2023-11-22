@@ -13,8 +13,12 @@ function Article() {
   // Fetch article by ID
   useEffect(() => {
     async function fetchData() {
-      const response = await client.getEntry(articleId, {locale: language})
-      setArticle(response.fields)
+      try {
+        const response = await client.getEntry(articleId, {locale: language})
+        setArticle(response.fields)
+      } catch (error) {
+        console.log('Error fetching individual article from Contentful:', err);
+      }
     }
     fetchData()
   }, [language])

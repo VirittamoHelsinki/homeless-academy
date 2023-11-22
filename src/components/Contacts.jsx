@@ -17,6 +17,14 @@ function Contacts() {
     fetchData()
   }, [])
 
+  if (contacts.length === 0) {
+    return (
+      <div className='bg-medium-green text-center py-10 text-white font-lexend font-extrabold text-3xl lg:text-5xl'>
+          Loading...
+      </div>
+    );
+  };
+
   return (
   <div className='bg-medium-green text-center py-10 text-white'>
     <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl'>{language === 'fi-FI' ? 'Homeless Academyn tiimi' : 'Meet our team'}</h1>

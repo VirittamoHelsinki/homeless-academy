@@ -46,7 +46,7 @@ function News() {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 8;
+  const articlesPerPage = 12;
 
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
@@ -55,12 +55,12 @@ function News() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (filteredArticles.length === 0) {
-    return <div>Loading...</div>;
+    return <div className='m-10 font-lexend font-extrabold text-3xl'>Loading...</div>;
   } 
   
   return (
-    <div className='m-4 flex flex-col gap-5'>
-      <div className='px-2 flex flex-col gap-3 lg:flex-row lg:justify-between'>
+    <div className='m-6 mb-10 flex flex-col gap-5'>
+      <div className='flex flex-col gap-3 lg:flex-row lg:justify-between'>
         <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl'>{language === 'en-US' ? 'News' : 'Ajankohtaista'}</h1>
         <Search handleSearch={handleSearch} />
       </div>
@@ -68,7 +68,7 @@ function News() {
       {/* Article cards */}
       <div className='flex flex-col gap-5 md:flex-row md:flex-wrap'>
         {currentArticles.map(article => (
-          <div key={article.sys.id} className='card bg-base-100 shadow-xl md:w-[48%] lg:w-[31%] 2xl:w-[24%]'>
+          <div key={article.sys.id} className='card bg-base-100 shadow-xl md:w-[48%] xl:w-[31%] 2xl:w-[24%]'>
             <figure className='h-60'>
               <img 
                 src={article.fields.headerImage.fields.file.url} 

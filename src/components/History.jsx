@@ -25,6 +25,14 @@ function History() {
     return formattedDate;
   }
 
+  if (timelineEvents.length === 0) {
+    return (
+      <div className='m-10 font-lexend font-extrabold text-3xl lg:text-5xl mb-5 text-white bg-medium-green text-center py-10 px-5 pl-16 pr-16'>
+          Loading...
+      </div>
+    );
+  };
+
   return (
     <div className='bg-medium-green text-white text-center py-10 px-5 pl-16 pr-16'>
       <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl mb-5'>

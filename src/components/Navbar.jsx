@@ -47,7 +47,7 @@ function Navbar() {
           <p className='text-blue'>DESIRE TO CHANGE</p>
         </div>
       </div>
-      <div className='hidden lg:flex flex-row gap-8'>
+      <div className='hidden lg:flex flex-row gap-4 xl:gap-8'>
         <button className='btn btn-ghost' onClick={() => navigate('/')}>{text.home[language]}</button>
         <button className='btn btn-ghost' onClick={() => navigate('/about')}>{text.about[language]}</button>
         <button className='btn btn-ghost' onClick={() => navigate('/news')}>{text.news[language]}</button>
@@ -60,7 +60,7 @@ function Navbar() {
 
         {/* Contact us button */}
         <button 
-          className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white' 
+          className='px-4 py-2 rounded-3xl bg-blue text-sm xl:text-lg font-semibold text-white' 
           onClick={handleShowContactForm}
         >
           {text.contactUs[language]}

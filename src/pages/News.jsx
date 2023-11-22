@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../components/Search';
+import Pagination from '../components/Pagination';
 import AppContext from '../AppContext';
 import { client } from '../client';
 import { formatDate} from '../utils/utils';
@@ -40,18 +41,33 @@ function News() {
         article.fields.title.toLowerCase().includes(event.target.value.toLowerCase())
       )
     );
+    setCurrentPage(1)
   };
 
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 8;
+
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  if (filteredArticles.length === 0) {
+    return <div>Loading...</div>;
+  } 
+  
   return (
     <div className='m-4 flex flex-col gap-5'>
-      <div className='flex flex-col gap-3 lg:flex-row lg:justify-between'>
+      <div className='px-2 flex flex-col gap-3 lg:flex-row lg:justify-between'>
         <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl'>{language === 'en-US' ? 'News' : 'Ajankohtaista'}</h1>
         <Search handleSearch={handleSearch} />
       </div>
 
       {/* Article cards */}
       <div className='flex flex-col gap-5 md:flex-row md:flex-wrap'>
-        {filteredArticles.map(article => (
+        {currentArticles.map(article => (
           <div key={article.sys.id} className='card bg-base-100 shadow-xl md:w-[48%] lg:w-[31%] 2xl:w-[24%]'>
             <figure className='h-60'>
               <img 
@@ -74,6 +90,14 @@ function News() {
           </div>
         ))}
       </div>
+      {filteredArticles.length > 12 && 
+        <Pagination 
+          articlesPerPage={articlesPerPage}
+          totalArticles={filteredArticles.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      }
     </div>
   )
 }

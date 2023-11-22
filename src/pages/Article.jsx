@@ -43,7 +43,7 @@ function Article() {
   };
 
   return (
-    <div className='my-5 mx-12 max-w-7xl'>
+    <div className='mt-5 mb-10 mx-12 max-w-7xl'>
       {article &&
         <div>
           <h1 className='font-lexend font-extrabold text-2xl lg:text-4xl mb-3'>{article.title}</h1>

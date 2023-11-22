@@ -24,10 +24,10 @@ const Testimonials = () => {
   // console.log('testimonials', testimonials);
 
   return (
-    <div className='bg-light-green pt-6 pl-16 pr-16 pb-32'>
-      <h1 className='font-lexend font-extrabold text-2xl lg:text-5xl text-black text-center pb-5'>Testimonials</h1>
-      <p className='hidden lg:font-sans lg:text-sm lg:text-lg lg:p-6'>Participant experiences (anonymous) / Quotes from activity organizers or coaches / quotes from partners</p>
-      <div className="grid grid-cols-1 gap-y-28 lg:grid-cols-4 lg:gap-8 w-full ">
+    <div className='bg-light-green pt-6 pl-16  pb-32'>
+      <h1 className='font-lexend font-extrabold text-2xl lg:text-5xl text-black text-center pb-5 pt-5'>Testimonials</h1>
+      <p className='hidden lg:flex lg:font-sans  lg:text-lg lg:p-6'>Participant experiences (anonymous) / Quotes from activity organizers or coaches / quotes from partners</p>
+      <div className="grid grid-cols-1 gap-y-28 lg:grid-cols-4 lg:gap-8 w-11/12 ">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="card h-56 bg-white shadow-2xl relative pb-10 mb-10">
             <div className='card-body'>

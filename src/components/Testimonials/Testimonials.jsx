@@ -19,7 +19,7 @@ const Testimonials = () => {
       }
     }
     fetchData();
-  }, [client]);
+  }, [language]);
 
   console.log('testimonials', testimonials);
 

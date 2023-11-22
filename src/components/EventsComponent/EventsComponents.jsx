@@ -59,11 +59,11 @@ const EventsComponent = () => {
 
         </div>
       </div>
-      <div className='bg-wgite pt-8 pl-8 pr-8 pb-8  lg:pl-16 lg:pr-16 lg:pb-16'>
+      <div className='bg-wgite pt-8 pl-8 pr-8 pb-6  lg:pl-16 lg:pr-16 '>
 
         <div className="grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3  lg:gap-4 w-full ">
           {events.map((event, index) => (
-            <div key={index} className="card shadow-lg h-56 lg:h-64 bg-white  items-left pb-3 ps-6  mb-2">
+            <div key={index} className="card shadow-lg lg:shadow-sm h-56 lg:h-64 bg-white  items-left pb-3 ps-6  mb-2">
               <div className='flex items-left gap-x-8 pt-6 lg:pt-10'>
                 <h2 className="font-lexend font-bold  ">
                   {event?.dates}

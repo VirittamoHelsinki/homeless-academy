@@ -21,7 +21,7 @@ const Testimonials = () => {
     fetchData();
   }, [language]);
 
-  console.log('testimonials', testimonials);
+  // console.log('testimonials', testimonials);
 
   return (
     <div className='bg-light-green pt-6 pl-16 pr-16 pb-32'>

@@ -31,7 +31,7 @@ function Contacts() {
 
   return (
   <div className='bg-medium-green text-center py-10 text-white'>
-    <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl'>{language === 'fi-FI' ? 'Homeless Academyn tiimi' : 'Meet our team'}</h1>
+    <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl p-5'>{language === 'fi-FI' ? 'Homeless Academyn tiimi' : 'Meet our team'}</h1>
     <div className='flex flex-wrap w-full justify-center gap-12 mt-12 px-10'>
       {contacts.map((contact, index) => (
         <div key={index} className='flex flex-col gap-2 items-center lg:items-start'>

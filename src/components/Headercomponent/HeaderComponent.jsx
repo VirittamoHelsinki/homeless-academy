@@ -2,12 +2,10 @@ import React, { useContext, useState, useEffect } from 'react';
 import AppContext from '../../AppContext';
 import { client } from '../../client';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ headerText, headerImage }) => {
   const { language } = useContext(AppContext);
 
   const [statistics, setStatistics] = useState([]);
-  const [headerText, setHeaderText] = useState();
-  const [headerImage, setHeaderImage] = useState();
 
   // Fetch data from Contentful
   useEffect(() => {
@@ -23,39 +21,9 @@ const HeaderComponent = () => {
         console.log('Error fetching statistics from Contentful:', error);
       }
     }
-
-    async function fetchHeaderText() {
-      try {
-        const response = await client.getEntries({
-          content_type: 'headerText',
-          locale: language,
-        })
-        const textFromResponse = response.items[0].fields.headerText
-        setHeaderText(textFromResponse)
-      } catch (error) {
-        console.log('Error fetching header text from Contentful:', error);
-      }
-    }
-    
     fetchStatistics()
-    fetchHeaderText()
   }, [language])
-  
-  useEffect(() => {
-    async function fetchHeaderImage() {
-      try {
-        const response = await client.getEntries({
-          content_type: 'headerImage',
-        })
-        const urlFromResponse = response.items[0].fields.headerImage.fields.file.url
-        setHeaderImage(urlFromResponse)
-      } catch (error) {
-        console.log('Error fetching header image from Contentful:', error);
-      }
-    }
-    fetchHeaderImage()
-  }, []);
-  
+    
   return (
     <div>
       {/* Header text */}

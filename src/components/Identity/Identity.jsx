@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../AppContext';
 import img from '../../assets/unsplash.png'
 
+const Identity = ({ introduction, image2, subtitle, activitiesDescription1, activitiesDescription2}) => {
+  const { language } = useContext(AppContext);
 
-const Identity = () => {
   return (
     <div>
       <div className='bg-light-green'>

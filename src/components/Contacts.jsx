@@ -8,14 +8,26 @@ function Contacts() {
   
   useEffect(() => {
     async function fetchData() {
-      const response = await client.getEntries({
-        content_type: 'contact'
-      })
-      const entries = response.items.map(item => item.fields)
-      setContacts(entries)
+      try {
+        const response = await client.getEntries({
+          content_type: 'contact'
+        })
+        const entries = response.items.map(item => item.fields)
+        setContacts(entries)
+      } catch (error) {
+        console.log('Error fetching contacts data from Contentful:', err);
+      }
     }
     fetchData()
   }, [])
+
+  if (contacts.length === 0) {
+    return (
+      <div className='bg-medium-green text-center py-10 text-white font-lexend font-extrabold text-3xl lg:text-5xl'>
+          Loading...
+      </div>
+    );
+  };
 
   return (
   <div className='bg-medium-green text-center py-10 text-white'>

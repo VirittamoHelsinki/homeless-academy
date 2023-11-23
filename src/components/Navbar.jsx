@@ -40,14 +40,14 @@ function Navbar() {
 
   return (
     <div className='flex flex-row justify-between h-10 items-center py-10 px-5'>
-      <div onClick={() => navigate('/')} className='flex gap-2 items-center'>
+      <div onClick={() => navigate('/')} className='flex gap-2 items-center cursor-pointer'>
         <img src='/src/assets/logo.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>
           <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
           <p className='text-blue'>DESIRE TO CHANGE</p>
         </div>
       </div>
-      <div className='hidden lg:flex flex-row gap-8'>
+      <div className='hidden lg:flex flex-row gap-4 xl:gap-8'>
         <button className='btn btn-ghost' onClick={() => navigate('/')}>{text.home[language]}</button>
         <button className='btn btn-ghost' onClick={() => navigate('/about')}>{text.about[language]}</button>
         <button className='btn btn-ghost' onClick={() => navigate('/news')}>{text.news[language]}</button>
@@ -60,7 +60,7 @@ function Navbar() {
 
         {/* Contact us button */}
         <button 
-          className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white' 
+          className='px-4 py-2 rounded-3xl bg-blue text-sm xl:text-lg font-semibold text-white' 
           onClick={handleShowContactForm}
         >
           {text.contactUs[language]}

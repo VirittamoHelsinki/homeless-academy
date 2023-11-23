@@ -27,7 +27,7 @@ const HeaderComponent = ({ headerText, headerImage }) => {
   return (
     <div>
       {/* Header text */}
-      <h1 className='font-MPlus text-center text-lg lg:text-3xl font-semibold p-8 border-b-2 border-gray-300 w-11/12 mx-auto relative'>
+      <h1 className='font-MPlus text-center text-lg lg:text-3xl font-semibold p-8 border-b-2 border-gray-300 w-11/12 mx-auto'>
         {headerText && headerText}
       </h1>
 

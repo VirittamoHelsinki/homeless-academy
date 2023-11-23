@@ -8,7 +8,7 @@ const Identity = ({ introduction, image2, subtitle, activitiesDescription1, acti
   return (
     <div>
       <div className='bg-light-green'>
-        <h1 className='text-center text-2xl font-bold lg:text-6xl pb-2 pt-8 lg:pb-4 lg:pt-12 font-sans '><span className='text-dark-green'>Keitä</span> olemme?</h1>
+        <h1 className='text-center text-2xl font-bold lg:text-6xl pb-2 pt-8 lg:pb-4 lg:pt-12 font-sans '><span className='text-dark-green'>{language === 'fi-FI' ? 'Keitä' : 'Who'}</span> {language === 'fi-FI' ? 'olemme?' : 'are we?'}</h1>
         <p className='text-center lg:text-xl text-light-gray font-semibold w-11/12 p-8 lg:w-2/5 mx-auto pb-12 '>Homeless Academy ry on voittoa tavoittelematon yhdistys, joka tuottaa ja kehittää asunnottomien ja päihdekuntoutujien toiminnallisen kuntoutuksen menetelmiä. Yhtenä toimintamme muotona järjestämme, kehitämme ja koordinoimme jalkapallotoimintaa Suomessa, erityisesti katujalkapallotoimintaa. Toimintaa järjestetään sekä naisille että miehille.</p>
       </div>
       <div className='bg-light-green flex items-center justify-between mx-auto mb-[-50px] lg:mb-[-190px]'>

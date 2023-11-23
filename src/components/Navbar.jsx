@@ -39,7 +39,7 @@ function Navbar() {
   };
 
   return (
-    <div className='flex flex-row justify-between h-10 items-center py-10 px-5'>
+    <div className='flex flex-row justify-between h-10 items-center py-10 px-5 fixed top-0 w-full bg-white z-50'>
       <div onClick={() => navigate('/')} className='flex gap-2 items-center cursor-pointer'>
         <img src='/src/assets/logo.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>

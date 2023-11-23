@@ -5,19 +5,23 @@ import img1 from '../../assets/eventimg.png'
 import img2 from '../../assets/location.png'
 import moment from 'moment';
 import './EventsComponents.css';
+import Pagination from '../Pagination';
 
 
 
 const EventsComponent = () => {
   const { language } = useContext(AppContext);
   const [events, setEvents] = useState([]);
-  const [truncatedDescription, setTruncatedDescription] = useState('');
+  // const [truncatedDescription, setTruncatedDescription] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [eventsPerPage] = useState(12);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await client.getEntries({
-          content_type: 'event'
+          content_type: 'event',
+          locale: language,
         });
         const entries = res.items.map(item => item?.fields);
         setEvents(entries.map(formatEventTime));
@@ -50,6 +54,16 @@ const EventsComponent = () => {
 
   console.log('events', events);
 
+  // Get current events based on currentPage
+  const indexOfLastEvent = currentPage * eventsPerPage;
+  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
   return (
     <div className='pt-4'>
       <div style={{ position: 'relative' }}>
@@ -61,9 +75,9 @@ const EventsComponent = () => {
       </div>
       <div className='bg-wgite pt-8 pl-8 pr-8 pb-6  lg:pl-16 lg:pr-16 '>
 
-        <div className="grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3  lg:gap-4 w-full ">
-          {events.map((event, index) => (
-            <div key={index} className="card shadow-lg lg:shadow-sm h-56 lg:h-64 bg-white  items-left pb-3 ps-6  mb-2">
+        <div className="grid grid-cols-1 lg:gap-y-4 lg:grid-cols-4  lg:gap-4 w-full pb-4">
+          {currentEvents.map((event, index) => (
+            <div key={index} className="card shadow-lg lg:shadow-sm  bg-white  items-left pb-3 ps-6  mb-2">
               <div className='flex items-left gap-x-8 pt-6 lg:pt-10'>
                 <h2 className="font-lexend font-bold  ">
                   {event?.dates}
@@ -77,16 +91,22 @@ const EventsComponent = () => {
                 <img src={img2} alt="location icone" />
                 <p className='text-blue'>{event?.eventlocation}</p>
               </div>
-              <p className=' font-lexend text-sm text-base py-2 pb-4 lg:w-3/4'>{event?.description}</p>
+              <p className=' font-lexend text-sm text-base py-2 lg:w-11/12 pb-8 pr-6 text-justify'>{event?.description}</p>
             </div>
           ))}
         </div>
+        <Pagination articlesPerPage={eventsPerPage} totalArticles={events.length} paginate={paginate} currentPage={currentPage} />
       </div>
     </div>
   );
 };
 
 export default EventsComponent;
+
+
+
+
+
 
 
 

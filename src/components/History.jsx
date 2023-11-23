@@ -8,12 +8,16 @@ function History() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await client.getEntries({
-        content_type: 'timelineEvent',
-        locale: language,
-      })
-      const entries = response.items.map(item => item.fields)
-      setTimelineEvents(entries)
+      try {
+        const response = await client.getEntries({
+          content_type: 'timelineEvent',
+          locale: language,
+        })
+        const entries = response.items.map(item => item.fields)
+        setTimelineEvents(entries)
+      } catch (error) {
+        console.log('Error fetching timeline events from Contentful:', err);
+      }
     }
     fetchData()
   }, [language])
@@ -24,6 +28,14 @@ function History() {
     const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
     return formattedDate;
   }
+
+  if (timelineEvents.length === 0) {
+    return (
+      <div className='m-10 font-lexend font-extrabold text-3xl lg:text-5xl mb-5 text-white bg-medium-green text-center py-10 px-5 pl-16 pr-16'>
+          Loading...
+      </div>
+    );
+  };
 
   return (
     <div className='bg-medium-green text-white text-center py-10 px-5 pl-16 pr-16'>

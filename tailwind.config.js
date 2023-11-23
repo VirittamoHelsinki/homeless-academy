@@ -11,7 +11,6 @@ export default {
       screens: {
         'laptop': '1024px',
       },
-
       colors: {
         'light-green': '#CFD8D7',
         'medium-green': '#557669',

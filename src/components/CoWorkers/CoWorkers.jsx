@@ -7,7 +7,7 @@ import img4 from '../../assets/okmlogo.png'
 const CoWorkers = () => {
   return (
     <div className='bg-light-green pl-16 pb-8 '>
-      <h1 className='font-extrabold font-lexend lg:pb-5 font-sans text-xl lg:text-3xl font-bold pt-10 pb-4 text-left'>Yhteistyökumppanit</h1>
+      <h1 className='lg:pb-5 font-sans text-xl lg:text-3xl font-bold pt-10 pb-4 text-left'>Yhteistyökumppanit</h1>
       <div className='lg:flex lg:items-start'>
         <div>
           <img className='w-56 h-20' src={img1} alt="" />
@@ -21,7 +21,6 @@ const CoWorkers = () => {
           <img className='w-56 h-16 py-2 lg:py-0' src={img4} alt="" />
         </div>
       </div>
-
     </div>
   );
 };

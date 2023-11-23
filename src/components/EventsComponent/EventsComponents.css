@@ -1,0 +1,9 @@
+
+        
+@media screen and (max-width: 640px) {
+    .truncate {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 
 function Pagination({ articlesPerPage, totalArticles, paginate, currentPage }) {
-  
+
   const totalPages = Math.ceil(totalArticles / articlesPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   return (
-    <div className='join'>
+    <div className='join flex items-center justify-center'>
       {pageNumbers.map((number) => (
         <button
           key={number}
@@ -15,7 +15,7 @@ function Pagination({ articlesPerPage, totalArticles, paginate, currentPage }) {
           {number}
         </button>
       ))}
-    </div>  
+    </div>
   );
 }
 

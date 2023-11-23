@@ -10,7 +10,8 @@ const Testimonials = () => {
     async function fetchData() {
       try {
         const res = await client.getEntries({
-          content_type: 'testimonial'
+          content_type: 'testimonial',
+          locale: language,
         });
         const entries = res.items.map(item => item.fields);
         setTestimonials(entries);

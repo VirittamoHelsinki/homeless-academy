@@ -16,7 +16,7 @@ function History() {
         const entries = response.items.map(item => item.fields)
         setTimelineEvents(entries)
       } catch (error) {
-        console.log('Error fetching timeline events from Contentful:', err);
+        console.log('Error fetching timeline events from Contentful:', error);
       }
     }
     fetchData()

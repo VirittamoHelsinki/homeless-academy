@@ -15,7 +15,7 @@ function Contacts() {
         const entries = response.items.map(item => item.fields)
         setContacts(entries)
       } catch (error) {
-        console.log('Error fetching contacts data from Contentful:', err);
+        console.log('Error fetching contacts data from Contentful:', error);
       }
     }
     fetchData()

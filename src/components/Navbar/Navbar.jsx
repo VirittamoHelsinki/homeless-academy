@@ -13,10 +13,6 @@ function Navbar() {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
   }
 
-  const changeActivepage = () => {
-
-  }
-
   const text = {
     home: {
       'fi-FI': 'Etusivu',
@@ -46,6 +42,8 @@ function Navbar() {
 
   return (
     <div className='flex flex-row justify-between h-10 items-center py-10 px-5 fixed top-0 w-full bg-white z-50'>
+
+      {/* Logo */}
       <div onClick={() => navigate('/')} className='flex gap-2 items-center cursor-pointer'>
         <img src='/src/assets/logo.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>
@@ -54,7 +52,7 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Navlinks */}
+      {/* Desktop navlinks */}
       <div className='hidden lg:flex flex-row gap-4 xl:gap-10'>
         <p 
           className={`navlink ${activePage === 'home' && 'active'}`} 
@@ -83,11 +81,9 @@ function Navbar() {
       </div>
 
       <div className='hidden lg:flex flex-row gap-6 items-center'>
-
-        {/* Change language button */}
+        {/* Desktop change language button */}
         <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
-
-        {/* Contact us button */}
+        {/* Desktop contact button */}
         <button 
           className='px-4 py-2 rounded-3xl bg-blue text-sm xl:text-lg font-semibold text-white' 
           onClick={handleShowContactForm}
@@ -101,7 +97,7 @@ function Navbar() {
         <summary className='m-1 btn bg-inherit border-none'><Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' /></summary>
         <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52'>
           <li>
-            {/* Contact us button */}
+            {/* Mobile Contact button */}
             <button 
               className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white m-4'
               onClick={handleShowContactForm}
@@ -109,9 +105,11 @@ function Navbar() {
               {text.contactUs[language]}
             </button>
           </li>
+          {/* Mobile change language button */}
           <li>
             <p onClick={handleChangeLanguage}>{text.changeLanguage[language]}</p>
           </li>
+          {/* Mobile navlinks */}
           <li>
             <p onClick={() => navigate('/')}>{text.home[language]}</p>
           </li>

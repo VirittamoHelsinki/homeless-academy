@@ -21,7 +21,6 @@ const Activities = () => {
     }
     fetchData();
   }, [language]);
-  console.log(activities)
 
   return (
     <div>

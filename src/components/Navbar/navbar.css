@@ -1,0 +1,7 @@
+.navlink {
+  @apply hover:text-blue hover:border-b hover:border-blue pb-0.5 hover:pb-0
+}
+
+.active {
+  @apply text-blue border-b border-blue pb-0
+}

@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
-import AppContext from '../AppContext';
+import React, { useContext, useState } from 'react';
+import AppContext from '../../AppContext';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import './navbar.css';
 
 function Navbar() {
   const navigate = useNavigate();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
+  const [activePage, setActivePage] = useState('home');
 
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
+  }
+
+  const changeActivepage = () => {
+
   }
 
   const text = {
@@ -47,14 +53,37 @@ function Navbar() {
           <p className='text-blue'>DESIRE TO CHANGE</p>
         </div>
       </div>
-      <div className='hidden lg:flex flex-row gap-4 xl:gap-8'>
-        <button className='btn btn-ghost' onClick={() => navigate('/')}>{text.home[language]}</button>
-        <button className='btn btn-ghost' onClick={() => navigate('/about')}>{text.about[language]}</button>
-        <button className='btn btn-ghost' onClick={() => navigate('/news')}>{text.news[language]}</button>
-        <button className='btn btn-ghost' onClick={() => navigate('/events')}>{text.events[language]}</button>
+
+      {/* Navlinks */}
+      <div className='hidden lg:flex flex-row gap-4 xl:gap-10'>
+        <p 
+          className={`navlink ${activePage === 'home' && 'active'}`} 
+          onClick={() => {navigate('/'); setActivePage('home');}}
+        >
+          {text.home[language]}
+        </p>
+        <p 
+          className={`navlink ${activePage === 'about' && 'active'}`} 
+          onClick={() => {navigate('/about'); setActivePage('about');}}
+        >
+          {text.about[language]}
+        </p>
+        <p 
+          className={`navlink ${activePage === 'news' && 'active'}`} 
+          onClick={() => {navigate('/news'); setActivePage('news');}}
+        >
+          {text.news[language]}
+        </p>
+        <p 
+          className={`navlink ${activePage === 'events' && 'active'}`} 
+          onClick={() => {navigate('/events'); setActivePage('events');}}
+        >
+          {text.events[language]}
+        </p>
       </div>
+
       <div className='hidden lg:flex flex-row gap-6 items-center'>
-        
+
         {/* Change language button */}
         <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
 

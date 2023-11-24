@@ -14,7 +14,7 @@ const EventsComponent = () => {
   const [events, setEvents] = useState([]);
   // const [truncatedDescription, setTruncatedDescription] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [eventsPerPage] = useState(12);
+  const [eventsPerPage] = useState(9);
 
   useEffect(() => {
     async function fetchData() {
@@ -57,7 +57,13 @@ const EventsComponent = () => {
   // Get current events based on currentPage
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+  // const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+  const currentEvents = events
+    .filter(event => moment(event?.endtime).isSameOrAfter(moment(), 'day'))
+    .sort((a, b) => moment(a.starttime).diff(moment(b.starttime)))
+    .slice(indexOfFirstEvent, indexOfLastEvent);
+
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -75,7 +81,7 @@ const EventsComponent = () => {
       </div>
       <div className='bg-wgite pt-8 pl-8 pr-8 pb-6  lg:pl-16 lg:pr-16 '>
 
-        <div className="grid grid-cols-1 lg:gap-y-4 lg:grid-cols-4  lg:gap-4 w-full pb-4">
+        <div className="grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3  lg:gap-4 w-full pb-4">
           {currentEvents.map((event, index) => (
             <div key={index} className="card shadow-lg lg:shadow-sm  bg-white  items-left pb-3 ps-6  mb-2">
               <div className='flex items-left gap-x-8 pt-6 lg:pt-10'>
@@ -91,7 +97,7 @@ const EventsComponent = () => {
                 <img src={img2} alt="location icone" />
                 <p className='text-blue'>{event?.eventlocation}</p>
               </div>
-              <p className=' font-lexend text-sm text-base py-2 lg:w-11/12 pb-8 pr-6 text-justify'>{event?.description}</p>
+              <p className=' font-lexend text-sm text-base py-2 lg:w-11/12 pb-8 pr-3 text-justify'>{event?.description}</p>
             </div>
           ))}
         </div>
@@ -102,6 +108,8 @@ const EventsComponent = () => {
 };
 
 export default EventsComponent;
+
+
 
 
 

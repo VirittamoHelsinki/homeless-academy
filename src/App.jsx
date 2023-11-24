@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   return (
-    <main className='app__wrapper'>
+    <main className='pt-16'>
       <Navbar />
       <ToastContainer hideProgressBar={true} />
       <ContactForm />

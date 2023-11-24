@@ -74,7 +74,7 @@ function News() {
       {/* Article cards */}
       <div className='flex flex-col gap-[2%] gap-y-6 lg:gap-y-8 md:flex-row md:flex-wrap'>
         {currentArticles.map(article => (
-          <div key={article.sys.id} className='card bg-base-100 shadow-xl md:w-[49%] xl:w-[32%]'>
+          <div key={article.sys.id} className='card shadow-xl md:w-[49%] xl:w-[32%]'>
             <figure className='h-60'>
               <img
                 src={article.fields.headerImage.fields.file.url}

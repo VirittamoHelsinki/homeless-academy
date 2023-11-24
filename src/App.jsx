@@ -6,9 +6,10 @@ import About from './pages/About';
 import News from './pages/News';
 import Article from './pages/Article';
 import Events from './pages/Events';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,6 +20,7 @@ function App() {
       <Navbar />
       <ToastContainer hideProgressBar={true} />
       <ContactForm />
+      <ScrollToTopButton />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />

@@ -33,7 +33,7 @@ function News() {
         setArticles(sortedEntries)
         setFilteredArticles(sortedEntries)
       } catch (error) {
-        console.log('Error fetching all articles from Contentful:', err);
+        console.log('Error fetching all articles from Contentful:', error);
       }
     }
     fetchData()

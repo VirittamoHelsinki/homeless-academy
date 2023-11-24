@@ -17,7 +17,7 @@ function Article() {
         const response = await client.getEntry(articleId, {locale: language})
         setArticle(response.fields)
       } catch (error) {
-        console.log('Error fetching individual article from Contentful:', err);
+        console.log('Error fetching individual article from Contentful:', error);
       }
     }
     fetchData()

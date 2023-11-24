@@ -94,7 +94,9 @@ function Navbar() {
 
       {/* Mobile burger menu */}
       <details className='dropdown dropdown-bottom dropdown-end lg:hidden'>
-        <summary className='m-1 btn bg-inherit border-none'><Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' /></summary>
+        <summary className='m-1 btn bg-inherit border-none'>
+          <Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30'/>
+        </summary>
         <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52'>
           <li>
             {/* Mobile Contact button */}

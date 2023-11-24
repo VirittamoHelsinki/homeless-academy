@@ -77,11 +77,11 @@ function History() {
       {!showAll && timelineEvents.length > 3 && (
         <button onClick={() => setShowAll(true)} className='mt-5 text-white flex mx-auto items-center gap-1'>
           {language === 'en-US' ? 'Show more' : 'Näytä lisää'}
-          <Icon icon="mdi:arrow-down" color="white" />
+          <Icon icon='mdi:arrow-down' color='white' />
         </button>
       )}
 
-      {/* Map the rest of the events */}
+      {/* Map the rest of the events when "Show more" is clicked */}
       {showAll && 
         <ul className='timeline timeline-snap-icon timeline-compact timeline-vertical text-start'>
           {timelineEvents.slice(3).map((event, index) => (

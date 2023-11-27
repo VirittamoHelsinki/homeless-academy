@@ -32,11 +32,11 @@ const HeaderComponent = ({ headerText, headerImage }) => {
       </h1>
 
       {/* Statistics */}
-      <div className='grid grid-cols-3   text-center pt-8 lg:pb-6  md:mb-0 md:pb-0 lg:w-3/4 mx-auto'>
+      <div className='grid grid-cols-2 lg:grid-cols-3 justify-items-center text-center pt-8 lg:pb-6 p-4 lg:w-3/4 mx-auto'>
         {statistics.length > 0 && statistics.map((statistic, index) => (
-          <div key={index} className='p-4'>
+          <div key={index} className=''>
             <p className='text-3xl lg:text-6xl text-blue pb-2'>{statistic.number}</p>
-            <p className='text-sm lg:text-xl '>{statistic.description}</p>
+            <p className='text-sm lg:text-xl pr-2 w-11/12 '>{statistic.description}</p>
           </div>
         ))}
       </div>
@@ -50,3 +50,5 @@ const HeaderComponent = ({ headerText, headerImage }) => {
 };
 
 export default HeaderComponent;
+
+

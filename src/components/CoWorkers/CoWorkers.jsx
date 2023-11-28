@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../AppContext';
 import img1 from '../../assets/plogo.png'
 import img2 from '../../assets/world.png'
 import img3 from '../../assets/ylogo.png'
 import img4 from '../../assets/okmlogo.png'
 
 const CoWorkers = () => {
+  const { language } = useContext(AppContext);
+
   return (
     <div className='bg-light-green pl-16 pb-8'>
-      <h1 className='font-extrabold font-lexend lg:pb-5 font-sans text-xl lg:text-3xl font-bold pt-10 pb-4 text-left'>Yhteistyökumppanit</h1>
+      <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl py-12'>
+        {language === 'en-US' ? 'Partners' : 'Yhteistyökumppanit'}
+      </h1>
       <div className='lg:flex lg:items-start'>
         <div>
           <img className='w-56 h-16' src={img1} alt="" />

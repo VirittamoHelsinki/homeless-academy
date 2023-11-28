@@ -7,7 +7,7 @@ import './navbar.css';
 function Navbar() {
   const navigate = useNavigate();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
-  const [activePage, setActivePage] = useState('home');
+  const [ activePage, setActivePage ] = useState('home');
 
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
@@ -45,7 +45,7 @@ function Navbar() {
 
       {/* Logo */}
       <div onClick={() => navigate('/')} className='flex gap-2 items-center cursor-pointer'>
-        <img src='/src/assets/logo.png' className='w-9 h-9' />
+        <img src='/src/assets/footer.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>
           <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
           <p className='text-blue'>DESIRE TO CHANGE</p>
@@ -85,7 +85,7 @@ function Navbar() {
         <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
         {/* Desktop contact button */}
         <button 
-          className='px-4 py-2 rounded-3xl bg-blue text-sm xl:text-lg font-semibold text-white' 
+          className='px-4 py-2 rounded-3xl bg-blue hover:bg-medium-blue text-sm xl:text-lg font-semibold text-white' 
           onClick={handleShowContactForm}
         >
           {text.contactUs[language]}
@@ -101,7 +101,7 @@ function Navbar() {
           <li>
             {/* Mobile Contact button */}
             <button 
-              className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white m-4'
+              className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white self-center m-4'
               onClick={handleShowContactForm}
             >
               {text.contactUs[language]}

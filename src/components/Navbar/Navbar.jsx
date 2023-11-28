@@ -7,7 +7,7 @@ import './navbar.css';
 function Navbar() {
   const navigate = useNavigate();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
-  const [activePage, setActivePage] = useState('home');
+  const [ activePage, setActivePage ] = useState('home');
 
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')

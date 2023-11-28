@@ -28,7 +28,7 @@ const Testimonials = () => {
       <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl text-black text-center pb-10 pt-5'>
         {language === 'en-US' ? 'Testimonials' : 'Kokemuksia'}
       </h1>
-      <div className='grid grid-cols-1 gap-y-28 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-8 w-11/12 mx-auto'>
+      <div className='grid grid-cols-1 gap-y-36 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-8 w-11/12 mx-auto'>
         {testimonials.map((testimonial, index) => (
           <div key={index} className='card h-56 bg-white shadow-2xl relative pb-10 mb-10'>
             <div className='card-body'>

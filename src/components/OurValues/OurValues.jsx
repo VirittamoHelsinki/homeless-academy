@@ -25,7 +25,7 @@ const OurValues = () => {
 
   return (
     <div className='bg-dark-green pb-8 pt-4'>
-      <h1 className='lg:ml-16 text-white lg:pb-5 font-sans text-2xl lg:text-4xl font-bold pt-10 text-center lg:text-left'>
+      <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl text-white text-center my-8'>
         {language === 'fi-FI' ? 'Tärkeimmät arvomme' : 'Our key values'}
       </h1>
       <div className='lg:grid lg:grid-cols-3 pt-8 lg:ml-16 gap-y-10 lg:gap-y-4 gap-x-24 lg:gap-x-2'>

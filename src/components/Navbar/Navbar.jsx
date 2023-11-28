@@ -45,7 +45,7 @@ function Navbar() {
 
       {/* Logo */}
       <div onClick={() => navigate('/')} className='flex gap-2 items-center cursor-pointer'>
-        <img src='/src/assets/logo.png' className='w-9 h-9' />
+        <img src='/src/assets/footer.png' className='w-9 h-9' />
         <div className='flex flex-col font-lexend text-center'>
           <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
           <p className='text-blue'>DESIRE TO CHANGE</p>

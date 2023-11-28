@@ -101,7 +101,7 @@ function Navbar() {
           <li>
             {/* Mobile Contact button */}
             <button 
-              className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white m-4'
+              className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white self-center m-4'
               onClick={handleShowContactForm}
             >
               {text.contactUs[language]}

@@ -85,7 +85,7 @@ function Navbar() {
         <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
         {/* Desktop contact button */}
         <button 
-          className='px-4 py-2 rounded-3xl bg-blue text-sm xl:text-lg font-semibold text-white' 
+          className='px-4 py-2 rounded-3xl bg-blue hover:bg-medium-blue text-sm xl:text-lg font-semibold text-white' 
           onClick={handleShowContactForm}
         >
           {text.contactUs[language]}

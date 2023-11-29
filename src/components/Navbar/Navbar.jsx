@@ -3,6 +3,7 @@ import AppContext from '../../AppContext';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import './navbar.css';
+import img from '../../assets/footer.png'
 
 function Navbar() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ function Navbar() {
 
       {/* Logo */}
       <div onClick={() => navigate('/')} className='flex gap-2 items-center cursor-pointer'>
-        <img src='/src/assets/footer.png' className='w-9 h-9' />
+        <img src={img} className='w-9 h-9' alt='logo'/>
         <div className='flex flex-col font-lexend text-center'>
           <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
           <p className='text-blue'>DESIRE TO CHANGE</p>

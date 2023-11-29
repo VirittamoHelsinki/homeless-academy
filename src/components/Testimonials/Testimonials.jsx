@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AppContext from '../../AppContext';
+import './testimonials.css';
 import { client } from '../../client';
 
 const Testimonials = () => {
@@ -22,17 +23,12 @@ const Testimonials = () => {
     fetchData();
   }, [language]);
 
-  // console.log('testimonials', testimonials);
-
   return (
-    <div className='bg-light-green pt-6 pl-9 lg:pl-16 pb-32'>
-      <h1 className='font-lexend font-extrabold text-2xl lg:text-5xl text-black text-center pb-5 pt-5'>
-        Testimonials
+    <div className='bg-light-green pt-6 pb-32'>
+      <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl text-black text-center pb-10 pt-5'>
+        {language === 'en-US' ? 'Testimonials' : 'Kokemuksia'}
       </h1>
-      <p className='hidden lg:flex lg:font-sans lg:text-lg lg:p-6'>
-        Participant experiences (anonymous) / Quotes from activity organizers or coaches / quotes from partners
-      </p>
-      <div className='grid grid-cols-1 gap-y-28 lg:grid-cols-4 lg:gap-8 w-11/12'>
+      <div className='grid grid-cols-1 gap-y-36 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-8 w-11/12 mx-auto'>
         {testimonials.map((testimonial, index) => (
           <div key={index} className='card h-80 bg-white shadow-2xl relative pb-10 mb-10'>
             <div className='card-body'>
@@ -40,21 +36,30 @@ const Testimonials = () => {
               <p className='text-center font-lexend text-sm text-base'>{testimonial.content}</p>
             </div>
             <div className='bottom-arrow'></div>
+<<<<<<< HEAD
             <div className='info-section flex flex-col items-center  '>
               <img
                 src={testimonial.profilePicture.fields.file.url}
                 className='w-10 h-10 rounded-full'
                 alt={`Profile ${index}`}
+=======
+            <div className='info-section flex flex-col items-center'>
+              <img 
+                src={testimonial.profilePicture.fields.file.url} 
+                className='w-10 h-10 rounded-full' 
+                alt={`Profile ${index}`} 
+>>>>>>> 6a5bc6cf0c1ab937efbbaf26a2452138636a8381
               />
               <div className='flex gap-2'>
                 <p className='text-dark-gray font-bold py-2'>{testimonial.firstName}</p>
                 <p className='text-dark-gray font-bold py-2'>{testimonial.lastName}</p>
               </div>
-              <p className='text-sm '>{testimonial.role}</p>
+              <p className='text-sm'>{testimonial.role}</p>
             </div>
           </div>
         ))}
       </div>
+<<<<<<< HEAD
 
       <style>
         {`
@@ -78,6 +83,8 @@ const Testimonials = () => {
           }
         `}
       </style>
+=======
+>>>>>>> 6a5bc6cf0c1ab937efbbaf26a2452138636a8381
     </div>
   );
 };

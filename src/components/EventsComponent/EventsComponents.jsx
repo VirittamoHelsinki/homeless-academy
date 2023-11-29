@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AppContext from '../../AppContext';
 import { client } from '../../client';
-import img1 from '../../assets/eventimg.png'
+import img1 from '../../assets/events_header.png'
 import img2 from '../../assets/location.png'
 import moment from 'moment';
 import './EventsComponents.css';
@@ -69,9 +69,11 @@ const EventsComponent = () => {
         <img className='w-full' src={img1} alt='event image' />
         <div 
           className='events-header' 
-          style={{ position: 'absolute', top: '35%', left: '20%', transform: 'translate(-50%, -50%)', textAlign: 'left', color: 'white', zIndex: 1 }}
+          style={{ position: 'absolute', top: '20%', textAlign: 'left', color: 'white', zIndex: 1 }}
         >
-          <h1 className='text-3xl lg:text-8xl font-lexend p-3'>EVENTS</h1>
+          <h1 className='text-3xl lg:text-8xl font-lexend font-extrabold ml-16'>
+            {language === 'en-US' ? 'EVENTS' : 'TAPAHTUMAT'}
+          </h1>
         </div>
       </div>
       <div className='pt-8 pl-8 pr-8 pb-6 lg:pl-16 lg:pr-16'>

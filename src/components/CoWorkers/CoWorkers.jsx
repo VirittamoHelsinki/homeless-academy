@@ -49,7 +49,3 @@ const CoWorkers = () => {
 };
 
 export default CoWorkers;
-
-
-
-

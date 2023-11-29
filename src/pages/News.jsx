@@ -88,7 +88,7 @@ function News() {
               <div className='card-actions justify-end'>
                 <button
                   onClick={() => navigate(`${article.sys.id}`)}
-                  className='px-4 py-2 mt-2 rounded-3xl bg-blue text-lg font-semibold text-white'>
+                  className='px-4 py-2 mt-2 rounded-3xl bg-blue hover:bg-medium-blue text-lg font-semibold text-white'>
                   {language === 'en-US' ? 'Read more' : 'Lue lisää'}
                 </button>
               </div>

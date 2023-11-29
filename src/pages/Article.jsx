@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AppContext from '../AppContext';
 import { client } from '../client';
-import { formatDate} from '../utils/utils';
+import { formatDate } from '../utils/utils';
 
 function Article() {
   const { language } = useContext(AppContext);

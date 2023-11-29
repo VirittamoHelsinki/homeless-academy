@@ -30,7 +30,6 @@ function Home() {
     <div>
       {content && (
         <div>
-          {console.log(content)}
           <HeaderComponent
             headerText={content.headerText}
             headerImage={content.headerImage.fields.file.url}

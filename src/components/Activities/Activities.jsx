@@ -21,12 +21,11 @@ const Activities = () => {
     }
     fetchData();
   }, [language]);
-  console.log(activities)
 
   return (
     <div>
       {activities && 
-        <div className='pt-16 lg:pt-0 bg-dark-green flex flex-col gap-8 lg:gap-16'>
+        <div className='pt-12 lg:pt-0 bg-dark-green flex flex-col gap-8 lg:gap-16'>
 
           <div className='flex flex-col lg:flex-row gap-6'>
             {/* Text 1 */}

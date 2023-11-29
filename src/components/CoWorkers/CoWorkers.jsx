@@ -1,28 +1,55 @@
-import React from 'react';
-import img1 from '../../assets/plogo.png'
-import img2 from '../../assets/world.png'
-import img3 from '../../assets/ylogo.png'
-import img4 from '../../assets/okmlogo.png'
+import React, { useContext, useEffect, useState } from 'react';
+import img3 from '../../assets/ylogo.png';
+import img4 from '../../assets/okmlogo.png';
+import AppContext from '../../AppContext';
+import { client } from '../../client';
 
 const CoWorkers = () => {
+  const { language } = useContext(AppContext);
+  const [partners, setPartners] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await client.getEntries({
+          content_type: 'partners',
+          locale: language,
+        });
+        const entries = res.items.map((item) => item.fields);
+        setPartners(entries);
+      } catch (err) {
+        console.log('Error fetching data from Contentful:', err);
+      }
+    }
+    fetchData();
+  }, [language]);
+
   return (
-    <div className='bg-light-green pl-16 pb-8 '>
-      <h1 className='lg:pb-5 font-sans text-xl lg:text-3xl font-bold pt-10 pb-4 text-left'>Yhteistyökumppanit</h1>
-      <div className='lg:flex lg:items-start'>
-        <div>
-          <img className='w-56 h-16' src={img1} alt="" />
-          <p className='py-6 w-5/6'>Teemme tiivistä yhteistyötä muun muassa Palloliiton kanssa. Yhteistyö on jatkunut jo vuosia. Homeless Academy ry:n pelaajat ja aktiivit osallistuvat talkootoimintana Palloliiton järjestämiin tapahtumiin ympäri Suomen sisältäen mm. Miesten, naisten ja juniorimaajoukkueiden maaotteluiden järjestämiseen ja valmisteluun osallistumisen.</p>
-          <img className='hidden lg:flex w-56 h-16' src={img3} alt="" />
-        </div>
-        <div>
-          <img className='w-56 h-16' src={img2} alt="" />
-          <p className='py-6 w-5/6'>Globaalin ilmiön vuoksi Homeless World Cup-tapahtumaa eli Asunnottomien jalkapallon maailmanmestaruuskisoja on järjestetty vuodesta 2003 alkaen. Turnauksen tarkoituksena on tuoda esiin asunnottomuutta ilmiönä ja vaikuttaa siihen, että eri maissa asunnottomuuden poistamiseksi tehdään kaikki tehtävissä oleva. Turnauksen järjestäjämaa vaihtuu vuosittain. Suomi on osallistunut turnaukseen vuodesta 2006 lähtien.</p>
-          <img className='lg:hidden w-56 h-16 py-2' src={img3} alt="" />
-          <img className='w-56 h-16 py-2 lg:py-0' src={img4} alt="" />
-        </div>
+    <div className='bg-light-green pl-16 pb-8'>
+      <h1 className='lg:pb-5 font-lexend text-xl lg:text-3xl font-bold pt-10 pb-6 text-left'>
+        {language === 'fi-FI' ? 'Yhteistyökumppanit' : 'Partners'}
+      </h1>
+      <div className='lg:flex'>
+        {partners.map((partner, index) => (
+          <div key={index}>
+            <div>
+              <img className='w-56 h-16' src={partner?.logo?.fields?.file?.url} alt='' />
+              <p className='py-6 w-5/6'>{partner.description}</p>
+
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className='lg:flex  lg:items-start lg:justify-between lg:mr-96 lg:pr-52'>
+        <img className=' w-56 h-16 py-2' src={img3} alt='' />
+        <img className='w-56 h-16 py-2 lg:py-0' src={img4} alt='' />
       </div>
     </div>
   );
 };
 
 export default CoWorkers;
+
+
+
+

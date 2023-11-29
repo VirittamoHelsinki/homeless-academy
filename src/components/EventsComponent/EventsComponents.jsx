@@ -7,8 +7,6 @@ import moment from 'moment';
 import './EventsComponents.css';
 import Pagination from '../Pagination';
 
-
-
 const EventsComponent = () => {
   const { language } = useContext(AppContext);
   const [events, setEvents] = useState([]);
@@ -51,9 +49,6 @@ const EventsComponent = () => {
     }
   };
 
-
-  console.log('events', events);
-
   // Get current events based on currentPage
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
@@ -64,40 +59,39 @@ const EventsComponent = () => {
     .sort((a, b) => moment(a.starttime).diff(moment(b.starttime)))
     .slice(indexOfFirstEvent, indexOfLastEvent);
 
-
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-
   return (
     <div className='pt-4'>
       <div style={{ position: 'relative' }}>
-        <img className='w-full' src={img1} alt="event image" />
-        <div className='events-header' style={{ position: 'absolute', top: '35%', left: '20%', transform: 'translate(-50%, -50%)', textAlign: 'left', color: 'white', zIndex: 1 }}>
+        <img className='w-full' src={img1} alt='event image' />
+        <div 
+          className='events-header' 
+          style={{ position: 'absolute', top: '35%', left: '20%', transform: 'translate(-50%, -50%)', textAlign: 'left', color: 'white', zIndex: 1 }}
+        >
           <h1 className='text-3xl lg:text-8xl font-lexend p-3'>EVENTS</h1>
-
         </div>
       </div>
-      <div className='bg-wgite pt-8 pl-8 pr-8 pb-6  lg:pl-16 lg:pr-16 '>
-
-        <div className="grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3  lg:gap-4 w-full pb-4">
+      <div className='pt-8 pl-8 pr-8 pb-6 lg:pl-16 lg:pr-16'>
+        <div className='grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3 lg:gap-4 w-full pb-4'>
           {currentEvents.map((event, index) => (
-            <div key={index} className="card shadow-lg lg:shadow-sm  bg-white  items-left pb-3 ps-6  mb-2">
+            <div key={index} className='card shadow-lg lg:shadow-sm items-left pb-3 ps-6 mb-2'>
               <div className='flex items-left gap-x-8 pt-6 lg:pt-10'>
-                <h2 className="font-lexend font-bold  ">
+                <h2 className='font-lexend font-bold'>
                   {event?.dates}
                 </h2>
-                <h2 className="font-lexend font-bold ">
+                <h2 className='font-lexend font-bold'>
                   {event?.formattedTime}
                 </h2>
               </div>
               <h2 className='font-lexend py-2'>{event?.title}</h2>
               <div className='flex'>
-                <img src={img2} alt="location icone" />
+                <img src={img2} alt='location icone' />
                 <p className='text-blue'>{event?.eventlocation}</p>
               </div>
-              <p className=' font-lexend text-sm text-base py-2 lg:w-11/12 pb-8 pr-3 text-justify'>{event?.description}</p>
+              <p className='font-lexend text-sm text-base py-2 lg:w-11/12 pb-8 pr-3 text-justify'>{event?.description}</p>
             </div>
           ))}
         </div>

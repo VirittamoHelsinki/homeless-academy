@@ -53,7 +53,7 @@ const Footer = () => {
 
         {/* Contact us button */}
         <button 
-          className='border border-white text-white p-2 w-32'
+          className='border border-white text-white p-2 w-32 hover:bg-blue hover:border-blue'
           onClick={handleShowContactForm}
         >
         {text.contactUs[language]}

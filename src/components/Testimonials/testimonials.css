@@ -1,0 +1,19 @@
+.bottom-arrow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -25px;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-top: 25px solid #FFFF;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.info-section {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top:260px
+}

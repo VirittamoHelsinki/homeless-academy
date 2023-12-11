@@ -38,5 +38,4 @@ When running on a local machine, open **[ http://localhost:5173/](http://localho
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 <br><br>
-
 Last updated: 11/12/2023 by Tomoko

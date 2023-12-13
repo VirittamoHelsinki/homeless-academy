@@ -36,7 +36,7 @@ function ContactForm() {
         email: email,
         message: message,
       });
-      toast.success(language === 'EN' ? 'Email sent successfully' : 'Sähköpostin lähetys onnistui');
+      toast.success(language === 'en-US' ? 'Email sent successfully' : 'Sähköpostin lähetys onnistui');
     } catch (error) {
       console.log(error);
       toast.error(language === 'en-US' ? 'Sending form was unsuccessful' : 'Lomakkeen lähetys epäonnistui');

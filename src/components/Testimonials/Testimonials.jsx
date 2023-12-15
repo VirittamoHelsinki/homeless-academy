@@ -32,7 +32,7 @@ const Testimonials = () => {
       <div className='grid grid-cols-1 gap-y-36 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-8 lg:gap-y-32 w-11/12 mx-auto'>
         {testimonials.map((testimonial, index) => (
           <div key={index} className='card h-80 bg-white shadow-2xl relative pb-10 mb-10'>
-            <div className='card-body overflow-auto'>
+            <div className='card-body overflow-auto overscroll-contain'>
               <h2 className='text-center font-lexend font-bold p-1'>{testimonial.title}</h2>
               <p className='text-center font-lexend text-sm text-base'>{testimonial.content}</p>
             </div>

@@ -9,7 +9,7 @@ function Navbar() {
   const navigate = useNavigate();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
   const [ activePage, setActivePage ] = useState('home');
-
+  
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
   }
@@ -104,7 +104,7 @@ function Navbar() {
             <button 
               className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white self-center m-4'
               onClick={handleShowContactForm}
-            >
+              >
               {text.contactUs[language]}
             </button>
           </li>

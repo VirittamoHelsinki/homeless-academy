@@ -54,11 +54,12 @@ const EventsComponent = () => {
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
   // const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
 
-  const currentEvents = events
+  const filteredEvents = events
     .filter(event => moment(event?.endtime).isSameOrAfter(moment(), 'day'))
-    .sort((a, b) => moment(a.starttime).diff(moment(b.starttime)))
-    .slice(indexOfFirstEvent, indexOfLastEvent);
+    .sort((a, b) => moment(a.starttime).diff(moment(b.starttime)));
 
+  const currentEvents = filteredEvents.slice(indexOfFirstEvent, indexOfLastEvent);
+  
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -67,8 +68,8 @@ const EventsComponent = () => {
     <div className='pt-4'>
       <div style={{ position: 'relative' }}>
         <img className='w-full' src={img1} alt='event image' />
-        <div 
-          className='events-header' 
+        <div
+          className='events-header'
           style={{ position: 'absolute', top: '20%', textAlign: 'left', color: 'white', zIndex: 1 }}
         >
           <h1 className='text-3xl lg:text-8xl font-lexend font-extrabold ml-16'>
@@ -97,7 +98,9 @@ const EventsComponent = () => {
             </div>
           ))}
         </div>
-        <Pagination articlesPerPage={eventsPerPage} totalArticles={events.length} paginate={paginate} currentPage={currentPage} />
+        {filteredEvents.length > 9 &&
+          <Pagination articlesPerPage={eventsPerPage} totalArticles={filteredEvents.length} paginate={paginate} currentPage={currentPage} />
+        }
       </div>
     </div>
   );

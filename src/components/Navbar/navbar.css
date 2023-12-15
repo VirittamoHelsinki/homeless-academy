@@ -5,3 +5,11 @@
 .active {
   @apply text-blue border-b border-blue pb-0
 }
+
+.nav-menu {
+  display: none;
+}
+
+.nav-menu.open {
+  display: block;
+}

@@ -8,6 +8,7 @@ import img from '../../assets/footer.png'
 function Navbar() {
   const navigate = useNavigate();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
+
   const [activePage, setActivePage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -99,6 +100,7 @@ function Navbar() {
       </div>
 
       {/* Mobile burger menu */}
+
       <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
         <button onClick={toggleMenu} className='m-1 btn bg-inherit border-none'>
           <Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' />
@@ -134,6 +136,7 @@ function Navbar() {
           </ul>
         </nav>
       </div>
+
     </div>
   )
 }

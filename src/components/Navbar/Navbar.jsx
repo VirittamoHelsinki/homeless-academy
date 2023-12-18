@@ -1,15 +1,19 @@
 import React, { useContext, useState } from 'react';
 import AppContext from '../../AppContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import './navbar.css';
 import img from '../../assets/footer.png'
 
+//
+import { NavLink } from 'react-router-dom';
+
 function Navbar() {
   const navigate = useNavigate();
+  const {pathname } = useLocation();
+  const currentPage = useLocation();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
-
-  const [activePage, setActivePage] = useState('home');
+  const [activePage, setActivePage] = useState(currentPage.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = (event) => {
@@ -19,6 +23,8 @@ function Navbar() {
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
   }
+
+  console.log(activePage);
 
   const text = {
     home: {
@@ -60,32 +66,41 @@ function Navbar() {
       </div>
 
       {/* Desktop navlinks */}
-      <div className='hidden lg:flex flex-row gap-4 xl:gap-10'>
-        <p
-          className={`navlink ${activePage === 'home' && 'active'}`}
-          onClick={() => { navigate('/'); setActivePage('home'); }}
+      <nav className='hidden lg:flex flex-row gap-4 xl:gap-10'>
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/'); setActivePage('home');}}
+          to="/"
         >
           {text.home[language]}
-        </p>
-        <p
-          className={`navlink ${activePage === 'about' && 'active'}`}
-          onClick={() => { navigate('/about'); setActivePage('about'); }}
+        </NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/about'); setActivePage('/about');}}
+          to="/about"
         >
           {text.about[language]}
-        </p>
-        <p
-          className={`navlink ${activePage === 'news' && 'active'}`}
-          onClick={() => { navigate('/news'); setActivePage('news'); }}
+        </NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/news'); setActivePage(pathname);}}
+          to="/news"
         >
           {text.news[language]}
-        </p>
-        <p
-          className={`navlink ${activePage === 'events' && 'active'}`}
-          onClick={() => { navigate('/events'); setActivePage('events'); }}
+        </NavLink>
+        <NavLink
+          //className={`navlink ${activePage === 'events' && 'active'}`}
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/events'); setActivePage(pathname);}}
+          to="/events"
         >
           {text.events[language]}
-        </p>
-      </div>
+        </NavLink>
+      </nav>
 
       <div className='hidden lg:flex flex-row gap-6 items-center'>
         {/* Desktop change language button */}

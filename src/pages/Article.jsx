@@ -53,7 +53,7 @@ function Article() {
           <h1 className='font-lexend font-extrabold text-2xl lg:text-4xl mb-3'>{article.title}</h1>
           <h3 className='mb-4 text-light-gray font-semibold'>{formatDate(article.date)} - {article.authorName}</h3>
           <hr />
-          <p className='my-4'>{parseContent(article.content)}</p>
+          <div className='my-4'>{parseContent(article.content)}</div>
         </div>
       }
     </div>

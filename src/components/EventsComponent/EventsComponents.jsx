@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef  } from 'react';
 import AppContext from '../../AppContext';
 import { client } from '../../client';
 import img1 from '../../assets/events_header.png'
@@ -13,6 +13,8 @@ const EventsComponent = () => {
   // const [truncatedDescription, setTruncatedDescription] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [eventsPerPage] = useState(9);
+  const eventsSectionRef = useRef(null); // Reference to the events section
+
 
   useEffect(() => {
     async function fetchData() {
@@ -54,21 +56,30 @@ const EventsComponent = () => {
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
   // const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
 
-  const currentEvents = events
+  const filteredEvents = events
     .filter(event => moment(event?.endtime).isSameOrAfter(moment(), 'day'))
-    .sort((a, b) => moment(a.starttime).diff(moment(b.starttime)))
-    .slice(indexOfFirstEvent, indexOfLastEvent);
+    .sort((a, b) => moment(a.starttime).diff(moment(b.starttime)));
+
+  const currentEvents = filteredEvents.slice(indexOfFirstEvent, indexOfLastEvent);
+  
+   // Function to scroll to the events section
+   const scrollToEventsSection = () => {
+    if (window.innerWidth >= 768 && eventsSectionRef.current) {
+      eventsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+    scrollToEventsSection(); // Scroll to events section when pagination changes
   };
 
   return (
     <div className='pt-4'>
       <div style={{ position: 'relative' }}>
         <img className='w-full' src={img1} alt='event image' />
-        <div 
-          className='events-header' 
+        <div
+          className='events-header'
           style={{ position: 'absolute', top: '20%', textAlign: 'left', color: 'white', zIndex: 1 }}
         >
           <h1 className='text-3xl lg:text-8xl font-lexend font-extrabold ml-16'>
@@ -76,8 +87,8 @@ const EventsComponent = () => {
           </h1>
         </div>
       </div>
-      <div className='pt-8 pl-8 pr-8 pb-6 lg:pl-16 lg:pr-16'>
-        <div className='grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3 lg:gap-4 w-full pb-4'>
+      <div ref={eventsSectionRef} id="eventsSection" className='pt-8 pl-8 pr-8 pb-6 lg:pl-16 lg:pr-16'>
+        <div className='grid grid-cols-1 lg:gap-y-4 lg:grid-cols-3 lg:gap-4 p-4 w-full'>
           {currentEvents.map((event, index) => (
             <div key={index} className='card shadow-lg lg:shadow-sm items-left pb-3 ps-6 mb-2'>
               <div className='flex items-left gap-x-8 pt-6 lg:pt-10'>
@@ -97,7 +108,9 @@ const EventsComponent = () => {
             </div>
           ))}
         </div>
-        <Pagination articlesPerPage={eventsPerPage} totalArticles={events.length} paginate={paginate} currentPage={currentPage} />
+        {filteredEvents.length > 9 &&
+          <Pagination scrollToEventsSection={scrollToEventsSection} articlesPerPage={eventsPerPage} totalArticles={filteredEvents.length} paginate={paginate} currentPage={currentPage} />
+        }
       </div>
     </div>
   );

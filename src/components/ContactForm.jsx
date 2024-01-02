@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 function ContactForm() {
   const { language, handleHideContactForm } = useContext(AppContext);
-  useEffect(() => emailjs.init('blybkcpl3NcA1DLJD'), []); // Public key from Email.js
+  useEffect(() => emailjs.init('TN_y2sqqjuQvKFxSj'), []); // Public key from Email.js
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -31,12 +31,12 @@ function ContactForm() {
 
     // Send email
     try {
-      await emailjs.send('service_rlj2iup', 'template_th8oubo', {
+      await emailjs.send('service_rl3861b', 'template_zo8p2pr', {
         name: name,
         email: email,
         message: message,
       });
-      toast.success(language === 'EN' ? 'Email sent successfully' : 'Sähköpostin lähetys onnistui');
+      toast.success(language === 'en-US' ? 'Email sent successfully' : 'Sähköpostin lähetys onnistui');
     } catch (error) {
       console.log(error);
       toast.error(language === 'en-US' ? 'Sending form was unsuccessful' : 'Lomakkeen lähetys epäonnistui');

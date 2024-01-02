@@ -21,6 +21,9 @@ To provide Homeless Academy with a website that promotes Homeless Academy and sp
 - Frontend development, content management system and web design by [hnnav](https://github.com/hnnav)
 - Frontend development and content management system by [Mirazum](https://github.com/Mirazum)
 
+- [Tomoko](https://github.com/Tomoko-hub) and [Josephine](https://github.com/JoeClos) join group from Dec 2023
+- Create dev-branch on 11.12.2023
+
 ## **Initial Setup**
 
 ```ts
@@ -35,5 +38,4 @@ When running on a local machine, open **[ http://localhost:5173/](http://localho
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 <br><br>
-
-Last updated: 21/09/2023 by hnnav
+Last updated: 11/12/2023 by Tomoko

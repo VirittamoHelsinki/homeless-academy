@@ -24,22 +24,23 @@ const Testimonials = () => {
   }, [language]);
 
   return (
+    
     <div className='bg-light-green pt-6 pb-32'>
       <h1 className='font-lexend font-extrabold text-3xl lg:text-5xl text-black text-center pb-10 pt-5'>
         {language === 'en-US' ? 'Testimonials' : 'Kokemuksia'}
       </h1>
-      <div className='grid grid-cols-1 gap-y-36 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-8 w-11/12 mx-auto'>
+      <div className='grid grid-cols-1 gap-y-36 md:grid-cols-2 md:gap-x-8 lg:grid-cols-4 lg:gap-8 lg:gap-y-32 w-11/12 mx-auto'>
         {testimonials.map((testimonial, index) => (
           <div key={index} className='card h-80 bg-white shadow-2xl relative pb-10 mb-10'>
-            <div className='card-body'>
+            <div className='card-body overflow-auto overscroll-contain'>
               <h2 className='text-center font-lexend font-bold p-1'>{testimonial.title}</h2>
               <p className='text-center font-lexend text-sm text-base'>{testimonial.content}</p>
             </div>
             <div className='bottom-arrow'></div>
-            <div className='info-section flex flex-col items-center  '>
+            <div className='info-section flex flex-col items-center'>
               <img
                 src={testimonial.profilePicture.fields.file.url}
-                className='w-10 h-10 rounded-full'
+                className='w-10 h-10 rounded-full object-cover'
                 alt={`Profile ${index}`}
               />
               <div className='flex gap-2'>
@@ -52,8 +53,9 @@ const Testimonials = () => {
         ))}
       </div>
 
-
     </div>
+
+    
   );
 };
 

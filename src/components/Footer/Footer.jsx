@@ -1,11 +1,22 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AppContext from '../../AppContext';
 import img from '../../assets/footer.png'
 import { Icon } from '@iconify/react';
+//set activePage
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+
+  //navigatPage
+  const navigate = useNavigate();
   const { language, handleShowContactForm } = useContext(AppContext);
+  // set ActivePage on Footer
+  const currentPage = useLocation();
+  const [activePage, setActivePage] = useState(currentPage.pathname);
+
+  console.log(activePage);
 
   const text = {
     home: {
@@ -68,10 +79,28 @@ const Footer = () => {
 
       {/* Page navigation links */}
       <nav className='grid grid-flow-col gap-4 md:gap-8 text-xs md:text-sm'>
-        <Link to='/'>{text.home[language]}</Link>
-        <Link to='/about'>{text.about[language]}</Link>
-        <Link to='/news'>{text.news[language]}</Link>
-        <Link to='/events'>{text.events[language]}</Link>
+      {/* setActivePage : User can see ActivePage on Footer */}
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/'); setActivePage('home'); }} 
+          to='/'>{text.home[language]}</NavLink> 
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/about'); setActivePage('about'); }}
+          to='/about'>{text.about[language]}</NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/news'); setActivePage('news'); }}
+          to='/news'>{text.news[language]}</NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "active" : ""}
+          //className={`navlink ${activePage === 'events' && 'active'}`}
+          onClick={() => { navigate('/events'); setActivePage('events'); }}
+          to='/events'>{text.events[language]}</NavLink>
       </nav>
 
       {/* Info section */}

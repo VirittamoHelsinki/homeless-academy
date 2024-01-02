@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   const navigate = useNavigate();
-  const {pathname } = useLocation();
+  const { pathname } = useLocation();
   const currentPage = useLocation();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
   const [activePage, setActivePage] = useState(currentPage.pathname);
@@ -69,24 +69,24 @@ function Navbar() {
       <nav className='hidden lg:flex flex-row gap-4 xl:gap-10'>
         <NavLink
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
-          onClick={() => { navigate('/'); setActivePage('home');}}
+            isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/'); setActivePage('home'); }}
           to="/"
         >
           {text.home[language]}
         </NavLink>
         <NavLink
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
-          onClick={() => { navigate('/about'); setActivePage('/about');}}
+            isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/about'); setActivePage('/about'); }}
           to="/about"
         >
           {text.about[language]}
         </NavLink>
         <NavLink
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
-          onClick={() => { navigate('/news'); setActivePage(pathname);}}
+            isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/news'); setActivePage(pathname); }}
           to="/news"
         >
           {text.news[language]}
@@ -94,8 +94,8 @@ function Navbar() {
         <NavLink
           //className={`navlink ${activePage === 'events' && 'active'}`}
           className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
-          onClick={() => { navigate('/events'); setActivePage(pathname);}}
+            isPending ? "pending" : isActive ? "active" : ""}
+          onClick={() => { navigate('/events'); setActivePage(pathname); }}
           to="/events"
         >
           {text.events[language]}
@@ -118,15 +118,22 @@ function Navbar() {
 
       <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
         <button onClick={toggleMenu} className='m-1 btn bg-inherit border-none'>
-          <Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' />
+          {isMenuOpen ? (
+            /* Change this icon to an 'X' when menu is open */
+            <Icon icon='iconamoon:close' width='30' height='30' />
+          ) : (
+            /* Display the burger icon when menu is closed */
+            <Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' />
+          )}
         </button>
+
         <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52'>
             <li>
               {/* Mobile Contact button */}
               <button
                 className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white self-center m-4'
-                onClick={() => {handleShowContactForm(); toggleMenu()}}
+                onClick={() => { handleShowContactForm(); toggleMenu() }}
               >
                 {text.contactUs[language]}
               </button>
@@ -143,10 +150,10 @@ function Navbar() {
               <button onClick={() => { navigate('/about'); toggleMenu() }}>{text.about[language]}</button>
             </li>
             <li>
-            <button onClick={() => { navigate('/news'); toggleMenu() }}>{text.news[language]}</button>
+              <button onClick={() => { navigate('/news'); toggleMenu() }}>{text.news[language]}</button>
             </li>
             <li>
-            <button onClick={() => { navigate('/events'); toggleMenu() }}>{text.events[language]}</button>
+              <button onClick={() => { navigate('/events'); toggleMenu() }}>{text.events[language]}</button>
             </li>
           </ul>
         </nav>

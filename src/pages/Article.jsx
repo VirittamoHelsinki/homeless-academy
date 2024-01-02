@@ -46,7 +46,7 @@ function Article() {
               // Link text
               const text = DOMPurify.sanitize(decodeURIComponent(part)); // Decode and sanitize link text
               return (
-                <a key={partIndex} href={parts[partIndex + 1]} target="_blank" rel="noopener noreferrer" className="text-sky-500 underline">
+                <a key={partIndex} href={parts[partIndex + 1]} target="_blank" rel="noopener noreferrer" className="text-sky-500 underline" style={{wordWrap:"break-word"}}>
                   {text}
                 </a>
               );

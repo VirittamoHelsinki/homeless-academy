@@ -39,7 +39,7 @@ const CoWorkers = () => {
             </div>
           </div>
         ))}
-        <div className='lg:w-1/2'><img className='w-56 h-16 py-2 lg:py-0' src={img3} alt='' /></div>
+        <div className='lg:w-1/2'><a href="https://ysaatio.fi/" target='_blank' rel='noopener noreferrer'><img className='w-56 h-16 py-2 lg:py-0' src={img3} alt='' /></a></div>
         <div className='lg:w-1/2'><img className='w-56 h-16 py-2 lg:py-0' src={img4} alt='' /></div>
       </div>
     </div>

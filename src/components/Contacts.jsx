@@ -37,6 +37,7 @@ function Contacts() {
         <div key={index} className='flex flex-col gap-2 items-center lg:items-start'>
           <img src={contact.profilePicture.fields.file.url} className='w-36 h-36 rounded-full lg:rounded-sm'/>
           <p className='font-semibold mt-3'>{contact.firstName} {contact.lastName}</p>
+          <p>{contact.title}</p>
           <p>{contact.phoneNumber}</p>
           <p>{contact.email}</p>
         </div>

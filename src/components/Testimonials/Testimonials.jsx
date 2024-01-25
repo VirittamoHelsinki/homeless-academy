@@ -39,8 +39,8 @@ const Testimonials = () => {
             <div className='bottom-arrow'></div>
             <div className='info-section flex flex-col items-center'>
               <img
-                src={testimonial.profilePicture.fields.file.url}
-                className='w-10 h-10 rounded-full object-cover'
+                src={testimonial.profilePicture?.fields?.file.url}
+                className='w-10 h-10 rounded-full object-cover bg-white'
                 alt={`Profile ${index}`}
               />
               <div className='flex gap-2'>

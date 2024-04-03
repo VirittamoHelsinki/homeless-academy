@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
-import AppContext from '../../AppContext';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Icon } from '@iconify/react';
-import './navbar.css';
-import img from '../../assets/footer.png'
+import { useContext, useState } from 'react';
+import { useLocation, useNavigate, NavLink } from 'react-router-dom';
 
-//
-import { NavLink } from 'react-router-dom';
+import AppContext from '../../AppContext';
+import './navbar.css';
+import img from '../../assets/footer.png';
+
+//import { Icon } from '@iconify/react';
+import DrawerMenu from '../DrawerMenu';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -14,11 +14,11 @@ function Navbar() {
   const currentPage = useLocation();
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
   const [activePage, setActivePage] = useState(currentPage.pathname);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+ /*  const [isMenuOpen, setIsMenuOpen] = useState(false); */
 
-  const toggleMenu = (event) => {
+  /* const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }
+  } */
 
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI')
@@ -101,7 +101,6 @@ function Navbar() {
           {text.events[language]}
         </NavLink>
       </nav>
-
       <div className='hidden lg:flex flex-row gap-6 items-center'>
         {/* Desktop change language button */}
         <button className='btn btn-ghost' onClick={handleChangeLanguage}>{text.changeLanguage[language]}</button>
@@ -113,37 +112,38 @@ function Navbar() {
           {text.contactUs[language]}
         </button>
       </div>
+      <DrawerMenu />
 
       {/* Mobile burger menu */}
-
-      <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
+      {/* This does not work on ONLY on safari */}
+      {/* <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
         <button onClick={toggleMenu} className='m-1 btn bg-inherit border-none'>
-          {isMenuOpen ? (
-            /* Change this icon to an 'X' when menu is open */
-            <Icon icon='iconamoon:close' width='30' height='30' />
-          ) : (
-            /* Display the burger icon when menu is closed */
-            <Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' />
+          {isMenuOpen ? ( */}
+            {/* Change this icon to an 'X' when menu is open */ }
+            {/* <Icon icon='iconamoon:close' width='30' height='30' />
+          ) : ( */}
+            {/* Display the burger icon when menu is closed */}
+            {/* <Icon icon='iconamoon:menu-burger-horizontal-light' width='30' height='30' />
           )}
-        </button>
+        </button> */}
 
-        <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
-          <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52'>
-            <li>
+       {/*  <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+          <ul className='p-2 shadow menu dropdown-content z-50 bg-base-100 rounded-box w-52'>
+            <li> */}
               {/* Mobile Contact button */}
-              <button
+             {/*  <button
                 className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white self-center m-4'
                 onClick={() => { handleShowContactForm(); toggleMenu() }}
               >
                 {text.contactUs[language]}
               </button>
-            </li>
+            </li> */}
             {/* Mobile change language button */}
-            <li>
+            {/* <li>
               <button onClick={() => { handleChangeLanguage(); toggleMenu() }}>{text.changeLanguage[language]}</button>
-            </li>
+            </li> */}
             {/* Mobile navlinks */}
-            <li>
+            {/* <li>
               <button onClick={() => { navigate('/'); toggleMenu() }}>{text.home[language]}</button>
             </li>
             <li>
@@ -157,8 +157,7 @@ function Navbar() {
             </li>
           </ul>
         </nav>
-      </div>
-
+      </div> */}
     </div>
   )
 }

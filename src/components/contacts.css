@@ -1,0 +1,33 @@
+.underline {
+  text-decoration: underline;
+}
+
+.emailLink::after {
+  content: attr(data-title);
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 15rem;
+  margin-top: 0.5rem;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  transition: opacity 0.3s, visibility 0.3s; 
+  text-align: center;
+  transform: translateX(-66%);
+  margin-top: 1.5rem;
+}
+
+.emailLink:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bg-custom-color {
+  /* background-color: #2B3440; */
+  /* background-color: #2B3440; */
+}

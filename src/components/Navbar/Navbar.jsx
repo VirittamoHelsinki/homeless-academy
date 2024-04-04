@@ -4,9 +4,9 @@ import { useLocation, useNavigate, NavLink } from 'react-router-dom';
 import AppContext from '../../AppContext';
 import './navbar.css';
 import img from '../../assets/footer.png';
-
 //import { Icon } from '@iconify/react';
-import DrawerMenu from '../DrawerMenu';
+import NavMenu from '../NavMenu';
+import { text } from '../../utils/text';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -25,33 +25,6 @@ function Navbar() {
   }
 
   console.log(activePage);
-
-  const text = {
-    home: {
-      'fi-FI': 'Etusivu',
-      'en-US': 'Home',
-    },
-    about: {
-      'fi-FI': 'Tietoa meistä',
-      'en-US': 'About',
-    },
-    news: {
-      'fi-FI': 'Ajankohtaista',
-      'en-US': 'News',
-    },
-    events: {
-      'fi-FI': 'Tapahtumat',
-      'en-US': 'Events',
-    },
-    contactUs: {
-      'fi-FI': 'Ota yhteyttä',
-      'en-US': 'Contact us',
-    },
-    changeLanguage: {
-      'fi-FI': 'EN',
-      'en-US': 'FI',
-    },
-  };
 
   return (
     <div className='flex flex-row justify-between h-10 items-center py-10 px-5 fixed top-0 w-full bg-white z-50'>
@@ -92,7 +65,6 @@ function Navbar() {
           {text.news[language]}
         </NavLink>
         <NavLink
-          //className={`navlink ${activePage === 'events' && 'active'}`}
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""}
           onClick={() => { navigate('/events'); setActivePage(pathname); }}
@@ -112,7 +84,9 @@ function Navbar() {
           {text.contactUs[language]}
         </button>
       </div>
-      <DrawerMenu />
+      <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
+        <NavMenu />
+      </div>
 
       {/* Mobile burger menu */}
       {/* This does not work on ONLY on safari */}

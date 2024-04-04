@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext,useState } from 'react';
 import AppContext from '../../AppContext';
-import img from '../../assets/footer.png'
+import img from '../../assets/footer.png';
+import { text } from '../../utils/text';
+
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 import { Icon } from '@iconify/react';
 //set activePage
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -16,38 +18,11 @@ const Footer = () => {
   const currentPage = useLocation();
   const [activePage, setActivePage] = useState(currentPage.pathname);
 
-  console.log(activePage);
-
-  const text = {
-    home: {
-      'fi-FI': 'Etusivu',
-      'en-US': 'Home',
-    },
-    about: {
-      'fi-FI': 'Tietoa meistä',
-      'en-US': 'About',
-    },
-    news: {
-      'fi-FI': 'Ajankohtaista',
-      'en-US': 'News',
-    },
-    events: {
-      'fi-FI': 'Tapahtumat',
-      'en-US': 'Events',
-    },
-    contactUs: {
-      'fi-FI': 'Ota yhteyttä',
-      'en-US': 'Contact us',
-    },
-    accountNumber: {
-      'fi-FI': 'Tilinumero:',
-      'en-US': 'Account number:',
-    },
-    businessId: {
-      'fi-FI': 'Y-tunnus:',
-      'en-US': 'Business ID:',
-    },
-  };
+  const getNavLinkStyles = ({isActive, isPending}) => ({
+    color: isPending ? 'none' : isActive ? '#2383D1' : 'inherit',
+    borderBottom: isActive ? '2px solid #2383D1' : 'none',
+    paddingBottom: isActive ? '0' : '0.5rem',
+  });
 
   return (
     <footer className='footer py-6 md:py-10 px-4 md:px-6 lg:px-10 bg-neutral text-white flex flex-col gap-5'>
@@ -79,26 +54,29 @@ const Footer = () => {
 
       {/* Page navigation links */}
       <nav className='grid grid-flow-col gap-4 md:gap-8 text-xs md:text-sm'>
-      {/* setActivePage : User can see ActivePage on Footer */}
         <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
-          onClick={() => { navigate('/'); setActivePage('home'); }} 
-          to='/'>{text.home[language]}</NavLink> 
+          className="navlink"
+          style={getNavLinkStyles({isActive:activePage==='home', isPending:false})}
+          onClick={() => { 
+            navigate('/');
+            setActivePage('home'); 
+          }} 
+          to='/'>
+          {text.home[language]}
+        </NavLink>
         <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
+          className="navlink"
+          style={getNavLinkStyles({isActive:activePage ==='about', isPending:false})}
           onClick={() => { navigate('/about'); setActivePage('about'); }}
           to='/about'>{text.about[language]}</NavLink>
         <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
+          className="navlink"
+          style={getNavLinkStyles({isActive:activePage==='news', isPending:false})}
           onClick={() => { navigate('/news'); setActivePage('news'); }}
           to='/news'>{text.news[language]}</NavLink>
         <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""}
-          //className={`navlink ${activePage === 'events' && 'active'}`}
+          className="navlink"
+          style={getNavLinkStyles({isActive:activePage==='events', isPending:false})}
           onClick={() => { navigate('/events'); setActivePage('events'); }}
           to='/events'>{text.events[language]}</NavLink>
       </nav>

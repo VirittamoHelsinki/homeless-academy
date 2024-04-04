@@ -10,7 +10,6 @@ import Pagination from '../Pagination';
 const EventsComponent = () => {
   const { language } = useContext(AppContext);
   const [events, setEvents] = useState([]);
-  // const [truncatedDescription, setTruncatedDescription] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [eventsPerPage] = useState(9);
   const eventsSectionRef = useRef(null); // Reference to the events section
@@ -54,7 +53,6 @@ const EventsComponent = () => {
   // Get current events based on currentPage
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-  // const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
 
   const filteredEvents = events
     .filter(event => moment(event?.endtime).isSameOrAfter(moment(), 'day'))

@@ -7,7 +7,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 import { Icon } from '@iconify/react';
-//set activePage
 
 const Footer = () => {
 

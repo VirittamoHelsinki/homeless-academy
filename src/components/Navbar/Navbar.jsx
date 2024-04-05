@@ -5,7 +5,7 @@ import AppContext from '../../AppContext';
 import './navbar.css';
 import img from '../../assets/footer.png';
 //import { Icon } from '@iconify/react';
-import NavMenu from '../NavMenu';
+import NavMobile from '../NavMobile';
 import { text } from '../../utils/text';
 
 function Navbar() {
@@ -87,7 +87,7 @@ function Navbar() {
         </button>
       </div>
       <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
-        <NavMenu />
+        <NavMobile />
       </div>
 
       {/* Mobile burger menu */}

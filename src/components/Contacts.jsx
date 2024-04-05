@@ -76,8 +76,16 @@ function Contacts() {
                     +{contact.phoneNumber}
                   </a>
                 </p>
-                <p className="mb-4 underline emailLink" data-title={contact.email}>
-                  <a href={`mailto:${contact.email}`} className="px-4 py-2">Email</a>
+
+
+                <p
+                  className="mb-4 underline emailLink"
+                  data-title={contact.email}
+                >
+                  <a href={`mailto:${contact.email}`} className="px-4 py-2">
+                    Email
+                  </a>
+
                 </p>
               </div>
             </div>

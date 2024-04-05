@@ -23,4 +23,12 @@ export const text = {
       'fi-FI': 'EN',
       'en-US': 'FI',
     },
+    accountNumber: {
+      'fi-FI': 'Tilinumero:',
+      'en-US': 'Account number:',
+    },
+    businessId: {
+      'fi-FI': 'Y-tunnus:',
+      'en-US': 'Business ID:',
+    },
   };

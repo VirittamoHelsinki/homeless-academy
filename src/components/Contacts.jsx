@@ -15,14 +15,9 @@ function Contacts() {
         const response = await client.getEntries({
           content_type: "contact",
         });
-        /* const entries = response.items.map((item) => ({
-          id: item.sys.id,
-          fields: item.fields, 
-         })); */
 
         const entries = response.items.map((item) => item.fields);
         setContacts(entries);
-        console.log(entries);
       } catch (error) {
         console.log("Error fetching contacts data from Contentful:", error);
       }
@@ -82,6 +77,7 @@ function Contacts() {
                   </a>
                 </p>
 
+
                 <p
                   className="mb-4 underline emailLink"
                   data-title={contact.email}
@@ -89,6 +85,7 @@ function Contacts() {
                   <a href={`mailto:${contact.email}`} className="px-4 py-2">
                     Email
                   </a>
+
                 </p>
               </div>
             </div>

@@ -47,33 +47,3 @@ const OurValues = () => {
 };
 
 export default OurValues;
-
-
-// icone: fields
-// :
-// description
-// :
-// ""
-// file
-// :
-// {url: '//images.ctfassets.net/16ds2ky5x15u/53gfKlblZbuhSx…f0QpU/f0c4bd62ae9ed030b8d09f302fa03dca/image2.png', details: {…}, fileName: 'image2.png', contentType: 'image/png'}
-// title
-// :
-// "honesty"
-// [[Prototype]]
-// :
-// Object
-// metadata
-// :
-// {tags: Array(0)}
-// how can i render icone url?
-
-
-
-
-
-
-
-
-
-

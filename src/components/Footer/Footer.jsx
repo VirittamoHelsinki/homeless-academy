@@ -1,27 +1,20 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext } from 'react';
 import AppContext from '../../AppContext';
 import img from '../../assets/footer.png';
 import { text } from '../../utils/text';
 
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 import { Icon } from '@iconify/react';
 
-const Footer = () => {
+const Footer = ({activePage, setActivePage}) => {
 
   //navigatPage
-  const navigate = useNavigate();
   const { language, handleShowContactForm } = useContext(AppContext);
-  // set ActivePage on Footer
-  const currentPage = useLocation();
-  const [activePage, setActivePage] = useState(currentPage.pathname);
 
-  const getNavLinkStyles = ({isActive, isPending}) => ({
-    color: isPending ? 'none' : isActive ? '#2383D1' : 'inherit',
-    borderBottom: isActive ? '2px solid #2383D1' : 'none',
-    paddingBottom: isActive ? '0' : '0.5rem',
-  });
+  // set ActivePage on Footer
+  const {pathname} = useLocation();
 
   return (
     <footer className='footer py-6 md:py-10 px-4 md:px-6 lg:px-10 bg-neutral text-white flex flex-col gap-5'>
@@ -53,31 +46,54 @@ const Footer = () => {
 
       {/* Page navigation links */}
       <nav className='grid grid-flow-col gap-4 md:gap-8 text-xs md:text-sm'>
-        <NavLink
+      <NavLink
           className="navlink"
-          style={getNavLinkStyles({isActive:activePage==='home', isPending:false})}
-          onClick={() => { 
-            navigate('/');
-            setActivePage('home'); 
-          }} 
-          to='/'>
-          {text.home[language]}
+          to="/"
+          isactive={()=>activePage === '/'}
+          style={{
+            color: activePage === '/' ? '#2383D1' : 'inherit',
+            borderBottom: activePage === '/' ? '2px solid #2383D1' : 'none',
+            paddingBottom: activePage === '/' ? '0.5rem' : '0',
+          }}
+          onClick={()=>setActivePage('/')}>
+          {text.home[language]}  
         </NavLink>
         <NavLink
           className="navlink"
-          style={getNavLinkStyles({isActive:activePage ==='about', isPending:false})}
-          onClick={() => { navigate('/about'); setActivePage('about'); }}
-          to='/about'>{text.about[language]}</NavLink>
+          to="/about"
+          isactive={()=>activePage === '/about'}
+          style={{
+            color: activePage === '/about' ? '#2383D1' : 'inherit',
+            borderBottom: activePage === '/about' ? '2px solid #2383D1' : 'none',
+            paddingBottom: activePage === '/about' ? '0.5rem' : '0',
+          }}
+          onClick={()=>setActivePage('/about')}>
+          {text.about[language]}  
+        </NavLink>
         <NavLink
           className="navlink"
-          style={getNavLinkStyles({isActive:activePage==='news', isPending:false})}
-          onClick={() => { navigate('/news'); setActivePage('news'); }}
-          to='/news'>{text.news[language]}</NavLink>
+          to="/news"
+          isactive={()=>activePage === '/news'}
+          style={{
+            color: activePage === '/news' ? '#2383D1' : 'inherit',
+            borderBottom: activePage === '/news' ? '2px solid #2383D1' : 'none',
+            paddingBottom: activePage === '/news' ? '0.5rem' : '0',
+          }}
+          onClick={()=>setActivePage('/news')}>
+          {text.news[language]}  
+        </NavLink>
         <NavLink
           className="navlink"
-          style={getNavLinkStyles({isActive:activePage==='events', isPending:false})}
-          onClick={() => { navigate('/events'); setActivePage('events'); }}
-          to='/events'>{text.events[language]}</NavLink>
+          to="/events"
+          isactive={()=>activePage === '/events'}
+          style={{
+            color: activePage === '/events' ? '#2383D1' : 'inherit',
+            borderBottom: activePage === '/events' ? '2px solid #2383D1' : 'none',
+            paddingBottom: activePage === '/events' ? '0.5rem' : '0',
+          }}
+          onClick={()=>setActivePage('/events')}>
+          {text.events[language]}  
+        </NavLink>
       </nav>
 
       {/* Info section */}

@@ -3,18 +3,14 @@ import AppContext from '../../AppContext';
 import img from '../../assets/footer.png';
 import { text } from '../../utils/text';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 import { Icon } from '@iconify/react';
 
 const Footer = ({activePage, setActivePage}) => {
 
-  //navigatPage
   const { language, handleShowContactForm } = useContext(AppContext);
-
-  // set ActivePage on Footer
-  const {pathname} = useLocation();
 
   return (
     <footer className='footer py-6 md:py-10 px-4 md:px-6 lg:px-10 bg-neutral text-white flex flex-col gap-5'>
@@ -47,50 +43,30 @@ const Footer = ({activePage, setActivePage}) => {
       {/* Page navigation links */}
       <nav className='grid grid-flow-col gap-4 md:gap-8 text-xs md:text-sm'>
       <NavLink
-          className="navlink"
+          className={`navlink ${activePage === '/' ? 'active': 'inactive'}`}
           to="/"
           isactive={()=>activePage === '/'}
-          style={{
-            color: activePage === '/' ? '#2383D1' : 'inherit',
-            borderBottom: activePage === '/' ? '2px solid #2383D1' : 'none',
-            paddingBottom: activePage === '/' ? '0.5rem' : '0',
-          }}
           onClick={()=>setActivePage('/')}>
           {text.home[language]}  
         </NavLink>
         <NavLink
-          className="navlink"
+          className={`navlink ${activePage === '/about' ? 'active': 'inactive'}`}
           to="/about"
           isactive={()=>activePage === '/about'}
-          style={{
-            color: activePage === '/about' ? '#2383D1' : 'inherit',
-            borderBottom: activePage === '/about' ? '2px solid #2383D1' : 'none',
-            paddingBottom: activePage === '/about' ? '0.5rem' : '0',
-          }}
           onClick={()=>setActivePage('/about')}>
           {text.about[language]}  
         </NavLink>
         <NavLink
-          className="navlink"
+          className={`navlink ${activePage === '/news' ? 'active': 'inactive'}`}
           to="/news"
           isactive={()=>activePage === '/news'}
-          style={{
-            color: activePage === '/news' ? '#2383D1' : 'inherit',
-            borderBottom: activePage === '/news' ? '2px solid #2383D1' : 'none',
-            paddingBottom: activePage === '/news' ? '0.5rem' : '0',
-          }}
           onClick={()=>setActivePage('/news')}>
           {text.news[language]}  
         </NavLink>
         <NavLink
-          className="navlink"
+          className={`navlink ${activePage === '/events' ? 'active': 'inactive'}`}
           to="/events"
           isactive={()=>activePage === '/events'}
-          style={{
-            color: activePage === '/events' ? '#2383D1' : 'inherit',
-            borderBottom: activePage === '/events' ? '2px solid #2383D1' : 'none',
-            paddingBottom: activePage === '/events' ? '0.5rem' : '0',
-          }}
           onClick={()=>setActivePage('/events')}>
           {text.events[language]}  
         </NavLink>

@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect, useRef } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { text } from '../../utils/text';
 import AppContext from '../../AppContext';
@@ -8,12 +8,18 @@ import AppContext from '../../AppContext';
 function NavMobile() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, handleShowContactForm, handleHideNavMenu } = useContext(AppContext);
+  const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
   const navBarRef = useRef(null); // Ref to reference the navigation bar button
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   // Function to close menu when user clicked outside of nav menu
   const handleClickOutside = (event) => {
@@ -30,6 +36,10 @@ function NavMobile() {
 
   const handleChangeLanguage = () => {
     language === 'fi-FI' ? setLanguage('en-US') : setLanguage('fi-FI');
+  };
+
+  const handleCurrentLinkClick=(to)=> {
+    if(pathname === to) setIsMenuOpen(false)
   };
 
   return (
@@ -54,41 +64,42 @@ function NavMobile() {
           </div>
           <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
             <ul tabIndex={0}
-              className={'menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'}
+              //className={'menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'}
+              className='absolute menu dropdown-content right-0 p-2 shadow bg-base-100 rounded-box w-52 text-lg'
             >
               <li>
                 <button
                   className='px-4 py-2 rounded-3xl bg-blue text-lg font-semibold text-white self-center m-4'
-                  onClick={() => { handleShowContactForm(); setIsMenuOpen(false); }}
+                  onClick={() => { handleShowContactForm();}}
                 >{text.contactUs[language]}</button>
               </li>
               <li>
                 <button
-                  onClick={() => { handleChangeLanguage(); handleHideNavMenu(); }}
+                  onClick={() => { handleChangeLanguage();}}
                 >{text.changeLanguage[language]}</button>
               </li>
               <li>
                 <Link
                   to={"/"}
-                  onClick={() => handleHideNavMenu()}
+                  onClick={() => handleCurrentLinkClick('/')}
                 >{text.home[language]}</Link>
               </li>
               <li>
                 <Link
                   to={'/about'}
-                  onClick={() => handleHideNavMenu()}
+                  onClick={() => handleCurrentLinkClick('/about')}
                 >{text.about[language]}</Link>
               </li>
               <li>
                 <Link
                   to={'/news'}
-                  onClick={handleHideNavMenu}
+                  onClick={()=>handleCurrentLinkClick('/news')}
                 >{text.news[language]}</Link>
               </li>
               <li>
                 <Link
                   to={'/events'}
-                  onClick={handleHideNavMenu}
+                  onClick={()=>handleCurrentLinkClick('/events')}
                 >{text.events[language]}</Link>
               </li>
             </ul>

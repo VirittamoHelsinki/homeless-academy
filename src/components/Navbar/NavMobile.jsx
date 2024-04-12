@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { text } from '../../utils/text';
 import AppContext from '../../AppContext';
 
-function NavMobile() {
+function NavMobile({activePage, setActivePage}) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage, handleShowContactForm } = useContext(AppContext);
@@ -39,7 +39,8 @@ function NavMobile() {
   };
 
   const handleCurrentLinkClick=(to)=> {
-    if(pathname === to) setIsMenuOpen(false)
+    if(pathname === to) setIsMenuOpen(false);
+    setActivePage(to);
   };
 
   return (

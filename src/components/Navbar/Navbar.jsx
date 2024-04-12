@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import AppContext from '../../AppContext';
 import NavMobile from './NavMobile';
@@ -20,17 +20,16 @@ function Navbar({activePage, setActivePage}) {
     <div className='flex flex-row justify-between h-10 items-center py-10 px-5 fixed top-0 w-full bg-white z-50'>
 
       {/* Logo */}
-      <NavLink 
+      <Link 
         to='/'
-        isactive={()=>activePage === '/'}
-        onClick={()=>setActivePage('/')} 
-        className='flex gap-2 items-center cursor-pointer'>
+        className='flex gap-2 items-center cursor-pointer'
+        >
         <img src={img} className='w-9 h-9' alt='logo' />
         <div className='flex flex-col font-lexend text-center'>
           <p className='border-b border-blue font-semibold text-dark-gray'>HOMELESS ACADEMY</p>
           <p className='text-blue'>DESIRE TO CHANGE</p>
         </div>
-      </NavLink>
+      </Link>
 
       {/* Desktop navNavLinks */}
       <nav className='hidden lg:flex flex-row gap-4 xl:gap-10'>
@@ -75,7 +74,7 @@ function Navbar({activePage, setActivePage}) {
         </button>
       </div>
       <div className='dropdown dropdown-bottom dropdown-end lg:hidden'>
-        <NavMobile />
+        <NavMobile activePage={activePage} setActivePage={setActivePage} />
       </div>
     </div>
   )

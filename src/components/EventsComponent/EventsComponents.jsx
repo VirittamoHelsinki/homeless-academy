@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState, useRef  } from 'react';
 import AppContext from '../../AppContext';
 import { client } from '../../client';
-import img1 from '../../assets/events_header.png'
 import img2 from '../../assets/location.png'
 import moment from 'moment';
 import './EventsComponents.css';
 import Pagination from '../Pagination';
+import EventHeader from '../EventHeader/EventsHeader';
 
 const EventsComponent = () => {
   const { language } = useContext(AppContext);
@@ -13,8 +13,7 @@ const EventsComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [eventsPerPage] = useState(9);
   const eventsSectionRef = useRef(null); // Reference to the events section
-
-
+  
   useEffect(() => {
     async function fetchData() {
       try {
@@ -75,7 +74,8 @@ const EventsComponent = () => {
   return (
     <div className='pt-4'>
       <div style={{ position: 'relative' }}>
-        <img className='w-full' src={img1} alt='event image' />
+        {/* This image should be changed by user */}
+        <EventHeader />
         <div
           className='events-header'
           style={{ position: 'absolute', top: '20%', textAlign: 'left', color: 'white', zIndex: 1 }}

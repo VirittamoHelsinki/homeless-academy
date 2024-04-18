@@ -22,6 +22,7 @@ const HeaderComponent = ({ headerText, headerImage }) => {
       }
     }
     fetchStatistics()
+    console.log('stastics ',statistics);
   }, [language])
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef  } from 'react';
+import { useContext, useEffect, useState, useRef  } from 'react';
 import AppContext from '../../AppContext';
 import { client } from '../../client';
 import img2 from '../../assets/location.png'

@@ -27,8 +27,8 @@ function EventHeader() {
     }, [language]);
 
     return (
-        <div className='events-header'>
-            <img src={eventHeader} />
+        <div>
+        {eventHeader && <img className='w-full h-auto bg-cover bg-center' src={eventHeader} alt="eventHeader" />}
         </div>
     );
 };

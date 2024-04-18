@@ -6,16 +6,14 @@
     @apply text-blue border-b border-blue pb-0
   }
   
-
-   .navlink:hover {
-    color: #2383D1; 
-    border-bottom: 2px solid #2383D1;
-    padding-bottom: 0;
-  }
-  
-  .active {
+   .active {
     color: #2383D1;
     border-bottom: 2px solid #2383D1;
-    padding-bottom: 0;
+    padding-bottom: 0.5rem;
   }
   
+  .inactive {
+    color: inherit;
+    border-bottom: none;
+    padding-bottom: 0;
+  }

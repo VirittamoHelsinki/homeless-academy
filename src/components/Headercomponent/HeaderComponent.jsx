@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import AppContext from '../../AppContext';
 import { client } from '../../client';
 
@@ -22,7 +22,6 @@ const HeaderComponent = ({ headerText, headerImage }) => {
       }
     }
     fetchStatistics()
-    console.log('stastics ',statistics);
   }, [language])
 
   return (

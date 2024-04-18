@@ -16,7 +16,8 @@ function EventHeader() {
                     content_type: 'eventHeader',
                     locale: language,
                 });
-                const entries = res.items[res.items.length - 1].fields.eventHeaderImage.fields.file.url;
+                /* const entries = res.items[res.items.length - 1].fields.eventHeaderImage.fields.file.url; */
+                const entries = res.items[res.items.length - 1].fields.eventHeaderImage.fields;
                 setEventHeader(entries);
             } catch (err) {
                 console.log('Error fetching data from Contentful:', err);
@@ -26,9 +27,11 @@ function EventHeader() {
         fetchData();
     }, [language]);
 
+    console.log('events header:',eventHeader);
+
     return (
         <div>
-        {eventHeader && <img className='w-full h-auto bg-cover bg-center' src={eventHeader} alt="eventHeader" />}
+        {eventHeader?.file?.url && <img className='w-full h-auto bg-cover bg-center' src={eventHeader.file.url} alt="eventHeader" />}
         </div>
     );
 };

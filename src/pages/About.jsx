@@ -1,4 +1,3 @@
-import React from 'react';
 import History from '../components/History';
 import Activities from '../components/Activities/Activities';
 import OurValues from '../components/OurValues/OurValues';
@@ -15,6 +14,6 @@ function About() {
       <CoWorkers />
     </div>
   )
-}
+} 
 
 export default About;

@@ -18,7 +18,6 @@ function History() {
         });
         const entries = response.items.map((item) => item.fields);
 
-        // Sort entries by date
         const sortedEntries = entries.sort((a, b) => {
           const dateA = new Date(a.date);
           const dateB = new Date(b.date);

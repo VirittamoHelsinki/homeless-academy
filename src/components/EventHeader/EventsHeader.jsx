@@ -27,13 +27,11 @@ function EventHeader() {
         fetchData();
     }, [language]);
 
-    console.log('events header:',eventHeader);
-
     return (
         <div>
-        {eventHeader?.file?.url && <img className='w-full h-auto bg-cover bg-center' src={eventHeader.file.url} alt="eventHeader" />}
+        {eventHeader?.file?.url && <img className='w-full h-auto bg-cover bg-center' src={eventHeader.file.url} alt={eventHeader.title} />}
         </div>
     );
-};
+}
 
 export default EventHeader;
